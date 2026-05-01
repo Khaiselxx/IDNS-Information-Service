@@ -10,27 +10,34 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo-placeholder">
-                <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#why-choose" class="nav-link">Why Choose Us</a></li>
-                <li><a href="#applyForm" class="nav-link">Apply</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo-placeholder">
+            <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
         </div>
-    </nav>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li class="dropdown">
+                <a href="#services" class="nav-link dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#services" class="nav-link">Fiber Plans</a></li>
+                    <li><a href="other-services.html" class="nav-link">Other Services</a></li>
+                </ul>
+            </li>
+            <li><a href="#why-choose" class="nav-link">Why Choose Us</a></li>
+            <li><a href="#applyForm" class="nav-link">Apply</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
