@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - IDNS Information Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="legal-page"> <!-- ✅ ADD THIS CLASS -->
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo-placeholder">
+                <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="company-profile.html" class="nav-link">About</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#applyForm" class="nav-link">Apply</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ✅ HERO FIRST (CORRECT ORDER) -->
+    <section class="legal-hero">
+        <div class="legal-hero-content">
+            <h1>Cookie Policy</h1>
+            <p>🍪 How we use cookies to improve your experience. Last updated: December 15, 2024</p>
+        </div>
+    </section>
+
+    <!-- ✅ STICKY NAVBAR AFTER HERO (CORRECT POSITION) -->
+    <div class="legal-navbar-sticky cookie-policy">
+        <div class="legal-nav-card">
+            <div class="legal-nav-icon">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="legal-nav-content">
+                <div class="legal-nav-title">Cookie Policy</div>
+                <div class="legal-nav-subtitle">🍪 How we use cookies to improve your experience</div>
+            </div>
+            <div class="legal-nav-actions">
+                <a href="#cookies-table" class="legal-nav-btn">
+                    <i class="fas fa-table"></i> View Cookies
+                </a>
+                <a href="index.html#home" class="legal-nav-btn secondary">
+                    <i class="fas fa-home"></i> Back Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ SINGLE LEGAL CONTENT SECTION -->
+    <section class="legal-content">
+        <div class="legal-container">
+            <div class="legal-card" id="cookies-table">
+                <div class="last-updated">
+                    <strong>Last Updated:</strong> December 15, 2024
+                </div>
+                
+                <h2>1. What Are Cookies?</h2>
+                <p>Cookies are small text files stored on your device when you visit our website. They help us remember your preferences, analyze usage, and improve your experience.</p>
+
+                <h2>2. Cookies We Use</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cookie Type</th>
+                            <th>Purpose</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Essential</strong></td>
+                            <td>Website functionality, navigation</td>
+                            <td>Session</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Analytics</strong></td>
+                            <td>Usage statistics, performance</td>
+                            <td>2 years</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preferences</strong></td>
+                            <td>Your choices and settings</td>
+                            <td>1 year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marketing</strong></td>
+                            <td>Personalized ads and content</td>
+                            <td>90 days</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <p>You can manage cookie preferences through your browser settings or our cookie banner.</p>
+                </div>
+
+                <!-- Rest of your content... -->
+                <h2>3. Third-Party Cookies</h2>
+                <p>We use trusted third-party services:</p>
+                <ul>
+                    <li><strong>Google Analytics:</strong> Website analytics</li>
+                    <li><strong>Facebook Pixel:</strong> Social media tracking</li>
+                    <li><strong>Font Awesome:</strong> Icons and graphics</li>
+                </ul>
+
+                <h2>4. Managing Cookies</h2>
+                <ul>
+                    <li>Browser settings (Chrome, Firefox, Safari, etc.)</li>
+                    <li>Cookie banner preferences</li>
+                    <li>Privacy extensions and tools</li>
+                </ul>
+
+                <h2>5. Cookie Banner</h2>
+                <p>Our cookie banner appears on first visit. You can:</p>
+                <ul>
+                    <li><strong>Accept All:</strong> Enable all cookies</li>
+                    <li><strong>Reject:</strong> Disable non-essential cookies</li>
+                    <li><strong>Manage Preferences:</strong> Customize settings</li>
+                </ul>
+
+                <h2>6. Your Rights</h2>
+                <ul>
+                    <li>Opt-out of non-essential cookies</li>
+                    <li>Delete cookies anytime</li>
+                    <li>Block third-party cookies</li>
+                    <li>Browser "Do Not Track" support</li>
+                </ul>
+
+                <h2>7. Contact Us</h2>
+                <p>Cookie concerns? Contact:</p>
+                <ul>
+                    <li>Email: <a href="mailto:inds.information@gmail.com">inds.information@gmail.com</a></li>
+                    <li>Phone: +63 967 442 4733</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+        <!-- Your existing footer content -->
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" onclick="scrollToTop()" title="Back to Top">↑</button>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

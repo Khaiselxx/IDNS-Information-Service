@@ -91,3 +91,29 @@ function initDropdowns() {
 window.addEventListener('load', function() {
     console.log('✅ Other Services page fully loaded');
 });
+
+// Mobile menu toggle
+document.querySelector('.hamburger').addEventListener('click', function() {
+    document.querySelector('.nav-menu').classList.toggle('active');
+});
+
+// Mobile dropdown toggle
+document.querySelectorAll('.dropdown').forEach(dropdown => {
+    dropdown.addEventListener('click', function(e) {
+        if (window.innerWidth <= 992) {
+            e.preventDefault();
+            this.querySelector('.dropdown-menu').style.display = 
+                this.querySelector('.dropdown-menu').style.display === 'block' ? 'none' : 'block';
+        }
+    });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});

@@ -1,4 +1,4 @@
-/* COMPLETE WORKING CSS - FULL RESPONSIVENESS FOR ALL DEVICES */
+/* COMPLETE WORKING CSS - NAVBAR SERVICES ALIGNMENT FIXED */
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@ body {
     padding: 0 20px;
 }
 
-/* NAVBAR - FULL RESPONSIVE */
+/* NAVBAR - PERFECT ALIGNMENT WITH OTHER PAGES */
 .navbar {
     position: fixed;
     top: 0;
@@ -42,6 +42,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 70px; /* FIXED HEIGHT - PERFECT ALIGNMENT */
 }
 
 .logo-placeholder img {
@@ -49,10 +50,18 @@ body {
     width: auto;
 }
 
+.custom-logo {
+    max-width: 70px;
+    height: auto;
+    border-radius: 8px;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center; /* PERFECT VERTICAL ALIGNMENT */
+    height: 100%; /* Match navbar height */
 }
 
 .nav-link {
@@ -61,11 +70,30 @@ body {
     font-weight: 500;
     font-size: 1rem;
     transition: all 0.3s ease;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0; /* INCREASED PADDING FOR PERFECT CENTER */
+    position: relative;
+    display: flex;
+    align-items: center; /* PERFECT CENTER ALIGNMENT */
+    height: 100%;
 }
 
 .nav-link:hover, .nav-link.active-page {
     color: #1e3a8a !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* ADJUSTED FOR BETTER ALIGNMENT */
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
 }
 
 .hamburger {
@@ -73,6 +101,7 @@ body {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    align-items: center;
 }
 
 .hamburger span {
@@ -82,32 +111,48 @@ body {
     transition: 0.3s;
 }
 
-/* DROPDOWN */
+/* DROPDOWN - PERFECT ALIGNMENT WITH SERVICES */
 .dropdown {
     position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.75rem 0; /* MATCH nav-link padding */
+    height: 100%;
+    cursor: pointer;
 }
 
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
-    background: white;
-    min-width: 200px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    min-width: 220px;
     list-style: none;
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
     transition: all 0.3s ease;
-    margin-top: 10px;
+    margin-top: 4px; /* PERFECT DROPDOWN POSITION */
     z-index: 1001;
+    padding: 0;
 }
 
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li {
+    margin: 0;
 }
 
 .dropdown-menu a {
@@ -115,16 +160,30 @@ body {
     padding: 1rem 1.5rem;
     color: #333;
     text-decoration: none;
-    border-bottom: 1px solid #eee;
+    font-weight: 500;
     font-size: 0.95rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-.dropdown-menu a:hover {
-    background: #1e3a8a;
-    color: white;
+.dropdown-menu a:hover, .dropdown-menu a.active-page {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    color: white !important;
+    padding-left: 2rem;
+    padding-right: 1.5rem;
 }
 
-/* HERO - FULL RESPONSIVE */
+.dropdown-menu a:last-child {
+    border-bottom: none;
+    border-radius: 0 0 12px 12px;
+}
+
+.dropdown-menu a:first-child {
+    border-radius: 12px 12px 0 0;
+}
+
+/* HERO - IDENTICAL TO MAIN SITE */
 .hero-section {
     height: 100vh;
     min-height: 600px;
@@ -133,6 +192,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    margin-top: 70px; /* PERFECT NAVBAR HEIGHT OFFSET */
 }
 
 .hero-fiber-bg {
@@ -145,6 +205,12 @@ body {
     background-size: cover;
     background-position: center;
     opacity: 0.7;
+    animation: fiberPulse 8s ease-in-out infinite;
+}
+
+@keyframes fiberPulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
 }
 
 .hero-content {
@@ -173,6 +239,11 @@ body {
     line-height: 1.5;
 }
 
+.hero-subtitle .highlight {
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
 .cta-button {
     background: linear-gradient(135deg, #fbbf24, #f59e0b);
     color: white;
@@ -192,7 +263,7 @@ body {
     box-shadow: 0 30px 60px rgba(251, 191, 36, 0.5);
 }
 
-/* SECTION TITLES */
+/* SECTION TITLES - PERFECT MATCH */
 .section-title {
     color: #1e3a8a;
     background: white;
@@ -204,9 +275,15 @@ body {
     text-align: center;
     margin: 0 auto 3rem;
     border: 2px solid #e2e8f0;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.25);
 }
 
-/* SERVICES SECTION - PERFECT RESPONSIVE GRID */
+.section-title:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* SERVICES SECTION */
 .services-section {
     padding: 100px 0 !important;
     background: 
@@ -228,7 +305,7 @@ body {
     padding: 0 20px;
 }
 
-/* ULTIMATE RESPONSIVE PLAN CARDS */
+/* PLAN CARDS - UNCHANGED */
 .plan-card {
     background: linear-gradient(145deg, #ffffff, #f8fafc);
     border-radius: 24px;
@@ -361,12 +438,12 @@ body {
 }
 
 .quote-btn {
-    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-    box-shadow: 0 10px 30px rgba(30,58,138,0.4);
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+    box-shadow: 0 10px 30px rgba(30,58,138,0.4) !important;
 }
 
 .quote-btn:hover {
-    box-shadow: 0 20px 40px rgba(30,58,138,0.5);
+    box-shadow: 0 20px 40px rgba(30,58,138,0.5) !important;
 }
 
 .popular-badge {
@@ -389,7 +466,7 @@ body {
     50% { transform: scale(1.05); }
 }
 
-/* FOOTER */
+/* FOOTER - PERFECT MATCH */
 .footer-section {
     background: linear-gradient(135deg, #1e3a8a, #3b82f6);
     color: white;
@@ -464,24 +541,51 @@ body {
     font-size: 0.9rem;
 }
 
+.legal-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.legal-links a {
+    color: #fbbf24 !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.legal-links a:hover {
+    background: rgba(251,191,36,0.2);
+    color: white !important;
+}
+
 /* SCROLL EFFECT */
 .navbar.scrolled {
     background: white !important;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-/* MOBILE MENU */
+/* MOBILE MENU - PERFECT ALIGNMENT */
 @media (max-width: 992px) {
     .hamburger { 
         display: flex !important; 
     }
     
+    .nav-container {
+        height: 65px; /* Slightly reduced for mobile */
+    }
+    
     .nav-menu { 
         position: fixed;
         left: -100%;
-        top: 80px;
+        top: 65px; /* Match nav-container height */
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 65px);
         background: white;
         flex-direction: column;
         padding: 2rem 0;
@@ -499,6 +603,8 @@ body {
     .nav-link {
         font-size: 1.2rem;
         padding: 1rem 0;
+        height: auto;
+        align-items: center;
     }
     
     .dropdown-menu {
@@ -511,31 +617,32 @@ body {
         visibility: visible;
         transform: none;
         display: none;
+        width: 100%;
+        text-align: center;
+        left: 0 !important;
     }
     
     .dropdown:hover .dropdown-menu {
         display: block;
     }
     
-    .plans-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 15px;
-    }
-    
     .hero-section {
-        min-height: 90vh;
-        padding: 1rem;
+        margin-top: 65px;
     }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
+    .nav-container {
+        height: 60px;
     }
     
-    .nav-container {
-        padding: 0 15px;
+    .nav-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    
+    .hero-section {
+        margin-top: 60px;
     }
     
     .logo-placeholder img {
@@ -546,103 +653,25 @@ body {
         width: 25px;
         height: 3px;
     }
-    
-    .plan-card {
-        min-height: 380px;
-        margin-bottom: 1rem;
-    }
-    
-    .plan-features {
-        padding: 0 0.5rem;
-    }
-    
-    .plan-features div {
-        margin: 0.6rem 0;
-        font-size: 0.95rem;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 1.5rem;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
 }
 
 @media (max-width: 480px) {
-    .hero-content {
-        padding: 1rem;
+    .nav-container {
+        height: 55px;
+        padding: 0 15px;
     }
     
-    .header-title {
-        margin-bottom: 0.75rem;
+    .nav-menu {
+        top: 55px;
+        height: calc(100vh - 55px);
     }
     
-    .hero-subtitle {
-        margin-bottom: 1.5rem;
-    }
-    
-    .cta-button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-    }
-    
-    .plan-card {
-        padding: 1.5rem 1.25rem;
-        min-height: 360px;
-    }
-    
-    .plan-icon {
-        width: 65px;
-        height: 65px;
-        font-size: 2rem;
-    }
-    
-    .plan-title {
-        font-size: 1.4rem;
-    }
-    
-    .plan-cta {
-        padding: 0.85rem 1.75rem;
-        font-size: 0.9rem;
-    }
-    
-    .section-title {
-        padding: 0.75rem 1.5rem;
-        font-size: 1.6rem;
-    }
-    
-    .services-section {
-        padding: 80px 0;
-    }
-    
-    .footer-section {
-        padding: 50px 0 25px;
+    .hero-section {
+        margin-top: 55px;
     }
 }
 
-@media (max-width: 360px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    .plans-grid {
-        padding: 0 10px;
-    }
-    
-    .plan-card {
-        padding: 1.25rem 1rem;
-    }
-    
-    .plan-features div {
-        font-size: 0.9rem;
-    }
-}
-
-/* PERFECT TOUCH RESPONSIVE */
+/* TOUCH RESPONSIVE */
 @media (hover: none) and (pointer: coarse) {
     .plan-card:hover,
     .plan-cta:hover,
@@ -653,5 +682,89 @@ body {
     .plan-card:active,
     .plan-cta:active {
         transform: translateY(-2px);
+    }
+}
+
+/* COOKIE BANNER */
+.cookie-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: 
+        url('Bg1.png') center/cover no-repeat fixed,
+        rgba(30, 58, 138, 0.92),
+        linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.85) 100%);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9) translateY(-20px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cookie-banner.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.cookie-banner > div {
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(30px);
+    border-radius: 28px;
+    box-shadow: 
+        0 50px 120px rgba(0, 0, 0, 0.3),
+        0 20px 60px rgba(251, 191, 36, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.cookie-banner h3 {
+    color: #1e3a8a;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cookie-banner button {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    margin: 0 0.5rem;
+}
+
+.cookie-banner button:first-of-type {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    box-shadow: 0 20px 50px rgba(251, 191, 36, 0.4);
+}
+
+.cookie-banner button:last-of-type {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+@media (max-width: 768px) {
+    .cookie-banner button {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
     }
 }

@@ -109,6 +109,7 @@ body {
 }
 
 /* 3. HERO SECTION*/
+/*3. HERO SECTION - FIXED PULSING*/
 .hero-section {
     height: 100vh;
     background: #ffffff;
@@ -120,20 +121,35 @@ body {
 }
 
 .hero-fiber-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('Bg1.png');
-    background-size: cover;
-    background-position: center;
-    animation: fiberPulse 8s ease-in-out infinite;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image: url('Bg1.png') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    /* ✅ FIXED ANIMATION - SPECIFIC TO HERO */
+    animation: heroFiberPulse 8s ease-in-out infinite !important;
+    z-index: 1 !important; /* Behind content */
+    opacity: 0.6; /* Initial opacity */
 }
 
-@keyframes fiberPulse {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
+/* ✅ UNIQUE HERO PULSE ANIMATION - NO CONFLICTS */
+@keyframes heroFiberPulse {
+    0%, 100% { 
+        opacity: 0.6; 
+        transform: scale(1) rotate(0deg); 
+    }
+    33% { 
+        opacity: 0.85; 
+        transform: scale(1.02) rotate(0.5deg); 
+    }
+    66% { 
+        opacity: 1; 
+        transform: scale(1.04) rotate(-0.5deg); 
+    }
 }
 
 .hero-content {
@@ -141,7 +157,8 @@ body {
     padding: 3rem 2rem;
     text-align: center;
     color: #1e3a8a;
-    z-index: 2;
+    z-index: 2 !important; /* Above background */
+    position: relative;
     opacity: 0;
     transform: translateY(50px);
     animation: heroSlideIn 1.2s ease-out 0.5s forwards;
@@ -2516,5 +2533,948 @@ html {
     .dropdown.active .dropdown-menu {
         max-height: 200px;
         padding: 1rem 0;
+    }
+}
+
+/* LEGAL FOOTER */
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 2rem;
+}
+
+.legal-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.legal-links a {
+    color: #fbbf24 !important;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.legal-links a:hover {
+    background: rgba(251,191,36,0.2);
+    color: white !important;
+}
+
+@media (max-width: 768px) {
+    .legal-links { gap: 1rem; }
+    .legal-links a { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
+}
+
+/* ========================================
+   PRIVACY | COOKIES | TERMS & CONDITIONS
+   PERFECT DESIGN - ADD TO END OF style.css
+   ======================================== */
+
+/* 1. LEGAL PAGE HERO */
+.legal-hero {
+    min-height: 70vh;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.legal-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('Bg1.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    animation: fiberPulse 8s ease-in-out infinite;
+}
+
+.legal-hero-content {
+    max-width: 900px;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #000000;
+    z-index: 2;
+    position: relative;
+}
+
+.legal-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.legal-hero p {
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+    font-weight: 400;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 2. LEGAL MAIN CONTENT */
+.legal-content {
+    padding: 120px 0;
+    background: #f8fafc;
+    min-height: 80vh;
+}
+
+.legal-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 3. PERFECT LEGAL CARD */
+.legal-card {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(30px);
+    border-radius: 28px;
+    padding: 5rem;
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.legal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24);
+    box-shadow: 0 4px 25px rgba(251, 191, 36, 0.5);
+}
+
+.legal-card h2 {
+    color: #1e3a8a;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 3rem 0 2rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #e2e8f0;
+    position: relative;
+}
+
+.legal-card h2:first-child {
+    margin-top: 0;
+}
+
+.legal-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border-radius: 2px;
+}
+
+.legal-card h3 {
+    color: #1e3a8a;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 2.5rem 0 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid #fbbf24;
+}
+
+.legal-card h4 {
+    color: #1e3a8a;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+}
+
+.legal-card p {
+    color: #4b5563;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.legal-card ul, .legal-card ol {
+    color: #4b5563;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 1.5rem 0 1.5rem 2rem;
+    padding-left: 1rem;
+}
+
+.legal-card li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 0.5rem;
+}
+
+.legal-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: -1.5rem;
+    color: #fbbf24;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.legal-card strong {
+    color: #1e3a8a;
+    font-weight: 700;
+}
+
+.legal-card em {
+    color: #f59e0b;
+    font-style: italic;
+}
+
+.legal-card a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.legal-card a:hover {
+    color: #1e3a8a;
+    text-decoration: underline;
+}
+
+/* 4. TABLE STYLES */
+.legal-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2.5rem 0;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+    min-width: 400px;
+}
+
+.legal-card th,
+.legal-card td {
+    padding: 1.5rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1rem;
+}
+
+.legal-card th {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.legal-card tr:hover {
+    background: #f8fafc;
+}
+
+/* 5. HIGHLIGHT BOXES */
+.highlight-box {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 2px solid #fbbf24;
+    border-radius: 20px;
+    padding: 2rem 2rem 2rem 3.5rem;
+    margin: 2.5rem 0;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+}
+
+.highlight-box::before {
+    content: '⚠️';
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: #fbbf24;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.highlight-box p {
+    margin: 0 !important;
+    font-weight: 600;
+    color: #92400e !important;
+    font-size: 1.1rem;
+}
+
+/* 6. LAST UPDATED */
+.last-updated {
+    background: rgba(30, 58, 138, 0.05);
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.last-updated strong {
+    color: #1e3a8a !important;
+    font-size: 1.2rem;
+}
+
+/* 7. BACK TO TOP BUTTON */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(251, 191, 36, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(251, 191, 36, 0.5);
+}
+
+/* 8. RESPONSIVE - LEGAL PAGES */
+@media (max-width: 1200px) {
+    .legal-container {
+        max-width: 950px;
+    }
+}
+
+@media (max-width: 992px) {
+    .legal-hero {
+        min-height: 60vh;
+    }
+    
+    .legal-content {
+        padding: 80px 0;
+    }
+    
+    .legal-card {
+        padding: 3.5rem 2.5rem;
+        margin-bottom: 2rem;
+        border-radius: 24px;
+    }
+    
+    .legal-card h2 {
+        font-size: 2rem;
+        margin: 2.5rem 0 1.5rem 0;
+    }
+    
+    .legal-card h3 {
+        font-size: 1.4rem;
+        padding-left: 0.8rem;
+    }
+    
+    .legal-card table {
+        min-width: 100%;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .legal-hero {
+        min-height: 55vh;
+    }
+    
+    .legal-hero h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .legal-content {
+        padding: 60px 0;
+    }
+    
+    .legal-card {
+        padding: 2.5rem 1.8rem;
+        margin: 0 10px 2rem;
+        border-radius: 20px;
+    }
+    
+    .legal-card h2 {
+        font-size: 1.8rem;
+    }
+    
+    .legal-card h3 {
+        font-size: 1.3rem;
+        margin: 2rem 0 1rem 0;
+        padding-left: 0.6rem;
+    }
+    
+    .legal-card p,
+    .legal-card li {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .highlight-box {
+        padding: 1.8rem 1.8rem 1.8rem 3rem;
+    }
+    
+    .highlight-box::before {
+        top: 0.8rem;
+        left: 0.8rem;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+    
+    .back-to-top {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-hero {
+        min-height: 50vh;
+        padding: 2rem 1rem;
+    }
+    
+    .legal-hero h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .legal-card {
+        padding: 2rem 1.5rem;
+        margin: 0 8px 1.5rem;
+    }
+    
+    .legal-card h2 {
+        font-size: 1.6rem;
+        margin: 2rem 0 1.2rem 0;
+    }
+    
+    .legal-card h3 {
+        font-size: 1.2rem;
+        padding-left: 0.5rem;
+    }
+    
+    .legal-card table th,
+    .legal-card table td {
+        padding: 1rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .highlight-box {
+        padding: 1.5rem 1.5rem 1.5rem 2.8rem;
+        margin: 2rem 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .legal-card {
+        padding: 1.8rem 1.2rem;
+        margin: 0 5px 1.5rem;
+    }
+    
+    .legal-hero-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .legal-card p,
+    .legal-card li {
+        font-size: 0.95rem;
+    }
+}
+
+/* 9. FOOTER FIX FOR LEGAL PAGES - ASHY WHITE */
+.legal-page .footer-section {
+    background: #f5f5f5 !important;
+}
+
+.legal-page .footer-section,
+.legal-page .footer-content {
+    color: #333 !important;
+}
+
+.legal-page .footer-links a {
+    color: #1e3a8a !important;
+}
+
+.legal-page .footer-links a:hover {
+    color: #f59e0b !important;
+}
+
+.legal-page .footer-contact li i {
+    color: #1e3a8a !important;
+}
+
+.legal-page .footer-plans h4,
+.legal-page .footer-links h4,
+.legal-page .footer-contact h4 {
+    color: #1e3a8a !important;
+}
+
+.legal-page .footer-bottom {
+    color: #4b5563 !important;
+}
+
+.legal-page .footer-bottom a {
+    color: #1e3a8a !important;
+}
+
+/* 10. CUSTOM LOGO FIX */
+.custom-logo {
+    max-width: 70px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 11. SMOOTH SCROLL FOR LEGAL PAGES */
+.legal-content {
+    scroll-margin-top: 100px;
+}
+
+/* 12. PRINT STYLES */
+@media print {
+    .navbar, .back-to-top, .footer-section {
+        display: none !important;
+    }
+    
+    .legal-hero {
+        min-height: auto;
+        background: white;
+        color: black;
+    }
+    
+    .legal-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+}
+
+/* ========================================
+   STICKY NAVBAR LEGAL PAGES - Cookie/Privacy
+   ======================================== */
+
+/* 1. STICKY NAVBAR CONTAINER */
+.legal-navbar-sticky {
+    position: sticky;
+    top: 80px; /* Below main navbar */
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+/* 2. PERFECT LEGAL NAVBAR CARD */
+.legal-nav-card {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.legal-nav-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 12px 35px rgba(251, 191, 36, 0.4);
+    flex-shrink: 0;
+}
+
+.legal-nav-icon i {
+    font-size: 2.2rem;
+    color: white;
+}
+
+.legal-nav-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.legal-nav-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.legal-nav-subtitle {
+    color: #6b7280;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.legal-nav-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.legal-nav-btn {
+    padding: 0.8rem 1.8rem;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+    white-space: nowrap;
+}
+
+.legal-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(30, 58, 138, 0.4);
+    color: white !important;
+}
+
+.legal-nav-btn.secondary {
+    background: transparent;
+    color: #1e3a8a;
+    border: 2px solid #e2e8f0;
+}
+
+.legal-nav-btn.secondary:hover {
+    background: #1e3a8a;
+    color: white;
+    border-color: #1e3a8a;
+}
+
+/* 3. COOKIE POLICY SPECIAL */
+.cookie-policy .legal-nav-icon i {
+    font-size: 2.5rem;
+}
+
+.cookie-policy .legal-nav-title {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 4. PRIVACY POLICY SPECIAL */
+.privacy-policy .legal-nav-icon {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+}
+
+/* 5. RESPONSIVE */
+@media (max-width: 992px) {
+    .legal-navbar-sticky {
+        top: 70px;
+    }
+    
+    .legal-nav-card {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 1.2rem 15px;
+    }
+    
+    .legal-nav-actions {
+        order: -1;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .legal-nav-content {
+        min-width: auto;
+        order: 2;
+    }
+    
+    .legal-nav-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .legal-nav-card {
+        padding: 1rem 12px;
+    }
+    
+    .legal-nav-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .legal-nav-icon i {
+        font-size: 2rem;
+    }
+    
+    .legal-nav-title {
+        font-size: 1.3rem;
+    }
+    
+    .legal-nav-btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-navbar-sticky {
+        top: 65px;
+    }
+    
+    .legal-nav-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .legal-nav-btn {
+        width: 100%;
+        max-width: 220px;
+        justify-content: center;
+    }
+    
+    .legal-nav-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* 6. ANIMATION ON SCROLL */
+.legal-navbar-sticky {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 0.6s ease-out 0.3s forwards;
+}
+
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.cookie-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* ✅ HERO BACKGROUND + OVERLAY */
+    background: 
+        /* Hero fiber background */
+        url('Bg1.png') center/cover no-repeat fixed,
+        /* Dark overlay matching hero */
+        rgba(30, 58, 138, 0.92),
+        /* Gradient overlay */
+        linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.85) 100%);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9) translateY(-20px);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: fiberPulse 8s ease-in-out infinite;
+}
+
+@keyframes fiberPulse {
+    0%, 100% { opacity: 0.95; }
+    50% { opacity: 1; }
+}
+
+.cookie-banner.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) translateY(0);
+}
+
+.cookie-banner > div {
+    max-width: 600px;
+    width: 90%;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+    /* ✅ PERFECT GLASSMORPHISM MATCHING HERO */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(30px);
+    border-radius: 28px;
+    box-shadow: 
+        0 50px 120px rgba(0, 0, 0, 0.3),
+        0 20px 60px rgba(251, 191, 36, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    position: relative;
+    transform: translateY(30px);
+    transition: all 0.4s ease 0.1s;
+}
+
+.cookie-banner.show > div {
+    transform: translateY(0);
+}
+
+.cookie-banner h3 {
+    color: #1e3a8a !important;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    letter-spacing: -0.02em;
+}
+
+.cookie-banner p {
+    color: #374151 !important;
+    font-size: clamp(1rem, 2.8vw, 1.2rem);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.cookie-banner a {
+    color: #3b82f6 !important;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cookie-banner a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+    transition: width 0.3s ease;
+}
+
+.cookie-banner a:hover::after {
+    width: 100%;
+}
+
+.cookie-banner a:hover {
+    color: #1e3a8a !important;
+}
+
+/* BUTTONS - HERO MATCHING COLORS */
+.cookie-banner button {
+    padding: clamp(1rem, 3vw, 1.3rem) clamp(2rem, 4vw, 3rem);
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    min-height: 55px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Accept Button - YELLOW HERO MATCH */
+.cookie-banner button:first-of-type {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b) !important;
+    color: white !important;
+    box-shadow: 0 20px 50px rgba(251, 191, 36, 0.4) !important;
+    margin-right: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.cookie-banner button:first-of-type:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(251, 191, 36, 0.6) !important;
+}
+
+/* Reject Button - BLUE HERO MATCH */
+.cookie-banner button:last-of-type {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #1e3a8a !important;
+    border: 2px solid rgba(30, 58, 138, 0.2) !important;
+    box-shadow: 0 15px 40px rgba(30, 58, 138, 0.15) !important;
+    backdrop-filter: blur(10px);
+}
+
+.cookie-banner button:last-of-type:hover {
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+    color: white !important;
+    border-color: transparent !important;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(30, 58, 138, 0.5) !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .cookie-banner button:first-of-type {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    
+    .cookie-banner button:last-of-type {
+        width: 100%;
+    }
+    
+    .cookie-banner {
+        background-size: cover;
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-banner > div {
+        margin: 2rem;
+        padding: 2rem 1.5rem;
     }
 }

@@ -8,7 +8,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- SEO META TAGS -->
+    <title>IDNS Information Service - Fast Fiber Internet | Laguna</title>
+    <meta name="description" content="Fastest fiber internet in Laguna. Unlimited data, reliable service. Plans from 799 Pesos. Apply now!">
+    <meta name="keywords" content="fiber internet Laguna, broadband Laguna, high speed internet, unlimited internet">
+
+    <!-- Schema for SEO -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "IDNS Information Service",
+    "description": "Fiber internet provider in Laguna",
+    "url": "https://yourwebsite.com",
+    "telephone": "+63 967 442 4733"
+    }
+    </script>
 </head>
+
+<!-- COOKIE BANNER -->
+<!-- YOUR EXISTING HTML - JUST REMOVE INLINE STYLES -->
+<div id="cookieBanner" class="cookie-banner" style="display: none;">
+    <div>
+        <h3>🍪 We use cookies</h3>
+        <p>
+            This site uses cookies to improve your experience. 
+            <a href="cookie-policy.html">Learn more</a>.
+        </p>
+        <button onclick="acceptCookies()">Accept</button>
+        <button onclick="rejectCookies()">Reject</button>
+    </div>
+</div>
+
+<script>
+function acceptCookies() {
+    document.cookie = "cookies_accepted=true; path=/; max-age=31536000";
+    document.getElementById('cookieBanner').style.display = 'none';
+}
+function rejectCookies() {
+    document.cookie = "cookies_accepted=false; path=/; max-age=31536000";
+    document.getElementById('cookieBanner').style.display = 'none';
+}
+
+// SHOW BANNER IF NO COOKIES
+if (!document.cookie.includes('cookies_accepted')) {
+    setTimeout(() => {
+        document.getElementById('cookieBanner').style.display = 'block';
+    }, 2000);
+}
+</script>
+
 <body>
     
 <!-- Navigation -->
@@ -317,9 +366,14 @@
             </div>
         </div>
         
+        <!-- REPLACE your existing footer-bottom with this -->
         <div class="footer-bottom">
-            <p>&copy; 2026 IDNS Information Services. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="cookie-policy.html">Cookies</a>
         </div>
+    <p>&copy; 2020 IDNS Information. All rights reserved.</p>
+</div>
     </div>
 </footer>
 

@@ -201,3 +201,29 @@ function initNavigation() {
     
     initDropdowns(); // Add this line
 }
+
+// Show banner after 2 seconds if no cookies
+setTimeout(() => {
+    if (!document.cookie.includes('cookies_accepted')) {
+        document.getElementById('cookieBanner').style.display = 'flex';
+        setTimeout(() => {
+            document.getElementById('cookieBanner').classList.add('show');
+        }, 50);
+    }
+}, 2000);
+
+function acceptCookies() {
+    document.cookie = "cookies_accepted=true; path=/; max-age=31536000";
+    document.getElementById('cookieBanner').classList.remove('show');
+    setTimeout(() => {
+        document.getElementById('cookieBanner').style.display = 'none';
+    }, 500);
+}
+
+function rejectCookies() {
+    document.cookie = "cookies_accepted=false; path=/; max-age=31536000";
+    document.getElementById('cookieBanner').classList.remove('show');
+    setTimeout(() => {
+        document.getElementById('cookieBanner').style.display = 'none';
+    }, 500);
+}
