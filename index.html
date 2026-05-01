@@ -148,6 +148,14 @@
                     </div>
                     <a href="#applyForm" class="plan-cta">Apply Now</a>
                 </div>
+
+                <div class="plan-card">
+                    <div class="plan-price">Want for more?</div>
+                    <div class="plan-speed">We also have Different 
+                        services that may help you</div>
+                    <a href="other-services.html" class="plan-cta">Learn More</a>
+                </div>
+
             </div>
         </div>
     </section>
@@ -212,13 +220,25 @@
                         </div>
                         <div class="form-group">
                             <select id="plan" name="plan" required>
-                                <option value="">Select Plan</option>
-                                <option value="799">Plan 799 - Up to 50Mbps</option>
-                                <option value="999" selected>Plan 999 - Up to 100Mbps ⭐</option>
-                                <option value="1299">Plan 1299 - Up to 150Mbps</option>
-                                <option value="1499">Plan 1499 - Up to 200Mbps</option>
-                                <option value="2000">Plan 2000 - Up to 300Mbps</option>
-                            </select>
+                                <option value="" disabled selected>Select Service/Plan</option>
+                                
+                                <!-- ORIGINAL PLANS -->
+                                <option value="799">Plan ₱799</option>
+                                <option value="999">Plan ₱999 ⭐</option>
+                                <option value="1299">Plan ₱1,299</option>
+                                <option value="1499">Plan ₱1,499</option>
+                                <option value="2000">Plan ₱2,000</option>
+                                
+                                <!-- NEW SERVICES ADDED -->
+                                <option value="cctv">CCTV Installation</option>
+                                <option value="firewall">Firewall VPN</option>
+                                <option value="network">Network Rehabilitation</option>
+                                <option value="cabling">Structured Cabling</option>
+                                <option value="ftth">FTTH Installation & Design</option>
+                                <option value="fiber">Fiber Lying</option>
+                                <option value="p2p">P2P Installation</option>
+
+                        </select>
                         </div>
                     </div>
                     
@@ -266,54 +286,43 @@
     </section>
 
     <!-- Footer -->
-    <footer id="footer" class="footer-section">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo-placeholder">
-                        <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
-                    </div>
-                    <p>Connecting Filipino homes and businesses with affordable, high-speed fiber internet since 2015.</p>
-                    <div class="social-links">
-                        <a href="https://web.facebook.com/IDNSinformationservicess" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    </div>
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-placeholder">
+                    <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
                 </div>
-                
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Plans</a></li>
-                        <li><a href="#applyForm">Apply</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> +63 967 442 4733</li>
-                        <li><i class="fas fa-envelope"></i> inds.information@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> City of San Pedro, Biñan, Sta Rosa, Cabuyao, Calamba Laguna</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-plans">
-                    <h4>Popular Plans</h4>
-                    <ul>
-                        <li>₱799 - 50Mbps</li>
-                        <li>₱999 - 100Mbps ⭐</li>
-                        <li>₱1,299 - 150Mbps</li>
-                    </ul>
+                <p>Professional IT Services for Laguna Since 2020</p>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/IDNSinformationservicess" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>&copy; 2026 IDNS Information Services. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Fiber Plans</a></li>
+                    <li><a href="#services">Other Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +63 967 442 4733</li>
+                    <li><i class="fas fa-envelope"></i> inds.information@gmail.com</li>
+                </ul>
             </div>
         </div>
-    </footer>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 IDNS Information Services. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

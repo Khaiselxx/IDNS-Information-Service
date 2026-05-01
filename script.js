@@ -157,15 +157,23 @@
         });
     }
     function getPlanPrice(planValue) {
-        const plans = { 
-            '799': '₱799', 
-            '999': '₱999 ⭐', 
-            '1299': '₱1,299', 
-            '1499': '₱1,499', 
-            '2000': '₱2,000' 
-        };
-        return plans[planValue] || 'N/A';
-    }
+    const plans = { 
+        '799': '₱799', 
+        '999': '₱999 ⭐', 
+        '1299': '₱1,299', 
+        '1499': '₱1,499', 
+        '2000': '₱2,000',
+        // NEW SERVICES - Custom pricing display
+        'cctv': 'CCTV Installation',
+        'firewall': 'Firewall VPN Setup',
+        'network': 'Network Rehabilitation',
+        'cabling': 'Structured Cabling',
+        'ftth': 'FTTH Installation & Design',
+        'fiber': 'Fiber Lying',
+        'p2p': 'P2P Installation'
+    };
+    return plans[planValue] || 'Custom Service';
+}
 
     // Add this to your existing initNavigation() function or create new
 function initDropdowns() {
