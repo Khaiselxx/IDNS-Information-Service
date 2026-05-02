@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Other Services Page Loaded');
     
-    // Initialize everything
     initNavigation();
     initSmoothScroll();
     initAnimations();
@@ -87,17 +86,14 @@ function initDropdowns() {
     });
 }
 
-// Window load
 window.addEventListener('load', function() {
     console.log('✅ Other Services page fully loaded');
 });
 
-// Mobile menu toggle
 document.querySelector('.hamburger').addEventListener('click', function() {
     document.querySelector('.nav-menu').classList.toggle('active');
 });
 
-// Mobile dropdown toggle
 document.querySelectorAll('.dropdown').forEach(dropdown => {
     dropdown.addEventListener('click', function(e) {
         if (window.innerWidth <= 992) {
@@ -108,7 +104,6 @@ document.querySelectorAll('.dropdown').forEach(dropdown => {
     });
 });
 
-// Navbar scroll effect
 window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {

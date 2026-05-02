@@ -1,10 +1,10 @@
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
         console.log('DOM loaded');
         
         initNavigation();
         initSmoothScroll();
         initAnimations();
-        initForm();  // EMAIL ONLY VERSION
+        initForm();
         initTimelineAnimation();
     });
 
@@ -68,21 +68,20 @@
         });
     }
 
-    // ✅ COMPLETE WORKING TIMELINE ANIMATION
     function initTimelineAnimation() {
-        console.log('Timeline animation initialized'); // Debug
+        console.log('Timeline animation initialized');
         
         const milestoneSections = document.querySelectorAll('.milestone-fullpage');
-        console.log('Found milestones:', milestoneSections.length); // Debug
+        console.log('Found milestones:', milestoneSections.length);
         
         if (milestoneSections.length > 0) {
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
-                            console.log('Animating:', entry.target); // Debug
+                            console.log('Animating:', entry.target);
                             entry.target.classList.add('animate');
-                            observer.unobserve(entry.target); // Prevent re-trigger
+                            observer.unobserve(entry.target);
                         }
                     });
                 },
@@ -96,11 +95,9 @@
         }
     }
 
-    // ✅ Initialize when DOM is ready
     document.addEventListener('DOMContentLoaded', function() {
         initTimelineAnimation();
         
-        // Also call on window load (for images)
         window.addEventListener('load', initTimelineAnimation);
     });
 
@@ -131,9 +128,8 @@
                     console.log('✅ Email sent!');
                     
                     setTimeout(() => {
-                        // 🎯 PERFECT HOME JUMP WITH NAVBAR OFFSET
                         const homeSection = document.getElementById('home');
-                        const navbarHeight = 90;  // Your navbar height
+                        const navbarHeight = 90;
                         const homeTop = homeSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
                         
                         window.scrollTo({
@@ -163,7 +159,6 @@
         '1299': '₱1,299', 
         '1499': '₱1,499', 
         '2000': '₱2,000',
-        // NEW SERVICES - Custom pricing display
         'cctv': 'CCTV Installation',
         'firewall': 'Firewall VPN Setup',
         'network': 'Network Rehabilitation',
@@ -175,55 +170,48 @@
     return plans[planValue] || 'Custom Service';
 }
 
-    // Add this to your existing initNavigation() function or create new
-function initDropdowns() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
+    function initDropdowns() {
+        const dropdowns = document.querySelectorAll('.dropdown');
         
-        // Desktop hover (already handled by CSS)
-        
-        // Mobile click
-        toggle.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                dropdown.classList.toggle('active');
-            }
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                }
+            });
         });
-    });
-}
-
-// Update your initNavigation function to include dropdowns
-function initNavigation() {
-    // ... your existing code ...
-    
-    initDropdowns(); // Add this line
-}
-
-// Show banner after 2 seconds if no cookies
-setTimeout(() => {
-    if (!document.cookie.includes('cookies_accepted')) {
-        document.getElementById('cookieBanner').style.display = 'flex';
-        setTimeout(() => {
-            document.getElementById('cookieBanner').classList.add('show');
-        }, 50);
     }
-}, 2000);
 
-function acceptCookies() {
-    document.cookie = "cookies_accepted=true; path=/; max-age=31536000";
-    document.getElementById('cookieBanner').classList.remove('show');
-    setTimeout(() => {
-        document.getElementById('cookieBanner').style.display = 'none';
-    }, 500);
-}
+    function initNavigation() {
+        
+        initDropdowns();
+    }
 
-function rejectCookies() {
-    document.cookie = "cookies_accepted=false; path=/; max-age=31536000";
-    document.getElementById('cookieBanner').classList.remove('show');
     setTimeout(() => {
-        document.getElementById('cookieBanner').style.display = 'none';
-    }, 500);
-}
+        if (!document.cookie.includes('cookies_accepted')) {
+            document.getElementById('cookieBanner').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('cookieBanner').classList.add('show');
+            }, 50);
+        }
+    }, 2000);
+
+    function acceptCookies() {
+        document.cookie = "cookies_accepted=true; path=/; max-age=31536000";
+        document.getElementById('cookieBanner').classList.remove('show');
+        setTimeout(() => {
+            document.getElementById('cookieBanner').style.display = 'none';
+        }, 500);
+    }
+
+    function rejectCookies() {
+        document.cookie = "cookies_accepted=false; path=/; max-age=31536000";
+        document.getElementById('cookieBanner').classList.remove('show');
+        setTimeout(() => {
+            document.getElementById('cookieBanner').style.display = 'none';
+        }, 500);
+    }

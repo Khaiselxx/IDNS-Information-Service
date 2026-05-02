@@ -1,4 +1,3 @@
-/*1. RESET & BASE STYLES*/
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +21,6 @@ body {
     padding: 0 20px;
 }
 
-/*2. NAVIGATION*/
 .navbar {
     position: fixed;
     top: 0;
@@ -108,8 +106,6 @@ body {
     transition: 0.3s;
 }
 
-/* 3. HERO SECTION*/
-/*3. HERO SECTION - FIXED PULSING*/
 .hero-section {
     height: 100vh;
     background: #ffffff;
@@ -130,13 +126,12 @@ body {
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
-    /* ✅ FIXED ANIMATION - SPECIFIC TO HERO */
     animation: heroFiberPulse 8s ease-in-out infinite !important;
-    z-index: 1 !important; /* Behind content */
-    opacity: 0.6; /* Initial opacity */
+    z-index: 1 !important; 
+    opacity: 0.6; 
 }
 
-/* ✅ UNIQUE HERO PULSE ANIMATION - NO CONFLICTS */
+
 @keyframes heroFiberPulse {
     0%, 100% { 
         opacity: 0.6; 
@@ -157,7 +152,7 @@ body {
     padding: 3rem 2rem;
     text-align: center;
     color: #1e3a8a;
-    z-index: 2 !important; /* Above background */
+    z-index: 2 !important; 
     position: relative;
     opacity: 0;
     transform: translateY(50px);
@@ -171,7 +166,7 @@ body {
     }
 }
 
-/*3. HERO SECTION (continued)*/
+
 .header-title {
     font-size: clamp(2.8rem, 6vw, 4.5rem);
     font-weight: 800;
@@ -202,7 +197,6 @@ body {
     font-weight: 800;
 }
 
-/* 4. SECTION TITLES & COMMON STYLES*/
 .section-title {
     color: #1e3a8a;
     background: #ffffff;
@@ -223,7 +217,6 @@ body {
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
 }
 
-/*5. CONTENT SECTIONS*/
 .content-section {
     padding: 140px 0;
 }
@@ -234,7 +227,7 @@ body {
 
 .services-section {
     padding: 160px 0;
-    background: #f5f5f5; /* Ash white */
+    background: #f5f5f5; 
 }
 
 .alternate-bg {
@@ -250,16 +243,14 @@ body {
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
 }
 
-/* ASHY WHITE FOOTER */
 .footer-section {
-    background: #f5f5f5 !important; /* Ash white */
+    background: #f5f5f5 !important; 
     color: #333 !important;
     padding: 80px 0 40px;
 }
 
-/* Update footer text colors for ash white bg */
 .footer-brand p {
-    color: #4b5563 !important;
+    color: #1e3a8a !important;
     opacity: 1 !important;
 }
 
@@ -287,8 +278,6 @@ body {
     color: #1e3a8a !important;
 }
 
-/*6. CARDS & GRIDS*/
-/* NEW - PERFECT 2+1 LAYOUT */
 .about-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -378,7 +367,6 @@ body {
     flex-grow: 1;
 }
 
-/* Plan Card Specific */
 .plan-price {
     font-size: 3.8rem;
     font-weight: 900;
@@ -441,8 +429,6 @@ body {
     min-height: 440px;
 }
 
-/*7. APPLY FORM*/
-/*7. APPLY FORM - HUGE SPACE ONLY (NO INNER BORDER) */
 .apply-section {
     padding: 140px 0;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
@@ -477,14 +463,14 @@ body {
 }
 
 .form-content-wrapper {
-    max-width: 700px; /* FIXED: Center content */
+    max-width: 700px; 
     margin: 0 auto;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem !important; /* HUGE gap between inputs */
+    gap: 4rem !important; 
     margin-bottom: 4rem !important;
 }
 
@@ -501,7 +487,7 @@ body {
 .form-group input,
 .form-group select {
     width: 100%;
-    padding: 2.2rem 2.8rem !important; /* HUGE input padding */
+    padding: 2.2rem 2.8rem !important; 
     border: 3px solid rgba(226, 232, 240, 0.9) !important;
     border-radius: 28px;
     background: white;
@@ -509,7 +495,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     transition: all 0.4s ease;
-    height: 80px; /* SUPER tall inputs */
+    height: 80px; 
     box-shadow: 0 20px 50px rgba(0,0,0,0.12);
     margin: 0 !important;
 }
@@ -525,12 +511,11 @@ body {
     color: #94a3b8;
 }
 
-/* FIX: Select Plan dropdown - NO CUT-OFF */
-/* MICRO SELECT - SMALLEST PERFECT SIZE */
+
 .form-group select {
     width: 100%;
-    font-size: 0.8rem !important;      /* ← TINY SIZE */
-    padding: 1.6rem 6rem 1.6rem 2.2rem !important; /* ← MAX right padding */
+    font-size: 0.8rem !important;      
+    padding: 1.6rem 6rem 1.6rem 2.2rem !important; 
     border: 3px solid rgba(226, 232, 240, 0.9) !important;
     border-radius: 28px;
     background: white url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e") no-repeat right 1.6rem center / 16px !important;
@@ -553,8 +538,8 @@ body {
 }
 
 .form-group select option {
-    font-size: 0.85rem !important;      /* ← TINY OPTIONS */
-    padding: 0.8rem 0.7rem !important;  /* ← TIGHT SPACING */
+    font-size: 0.85rem !important;      
+    padding: 0.8rem 0.7rem !important;  
     background: white !important;
     color: #333 !important;
     line-height: 1.4;
@@ -568,7 +553,7 @@ body {
     margin-top: 3rem !important;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 768px) {
     .form-row {
         grid-template-columns: 1fr !important;
@@ -598,7 +583,7 @@ body {
         height: 68px;
     }
 }
-/*8. BUTTONS*/
+
 .cta-button, .plan-cta {
     background: linear-gradient(135deg, #fbbf24, #f59e0b);
     color: white;
@@ -632,7 +617,7 @@ body {
     transform: none;
 }
 
-/*9. CONTACT SECTION*/
+
 .contact-grid {
     display: grid;
     gap: 2rem;
@@ -692,7 +677,7 @@ body {
     color: #1e3a8a;
 }
 
-/*10. FOOTER*/
+
 .footer-section {
     background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1e3a8a 100%);
     color: white;
@@ -795,7 +780,7 @@ body {
     text-decoration: none;
 }
 
-/*11. RESPONSIVE DESIGN*/
+
 @media (max-width: 992px) {
     .hamburger { 
         display: flex !important; 
@@ -893,7 +878,7 @@ body {
     }
 }
 
-/*12. UTILITY CLASSES */
+
 body.no-scroll { 
     overflow: hidden; 
 }
@@ -904,8 +889,7 @@ body.no-scroll {
     box-shadow: 0 5px 25px rgba(0,0,0,0.12);
 }
 
-/* Full width card */
-/* NEW */
+
 .about-card.full-width {
     grid-column: 1 / -1 !important;
     max-width: 100%;
@@ -921,7 +905,7 @@ body.no-scroll {
     border: 2px solid #e5e5e5 !important;
 }
 
-/* Company Profile Page Styles */
+
 .company-profile-hero {
     height: 100vh;
     background: #ffffff;
@@ -1096,7 +1080,7 @@ body.no-scroll {
     font-weight: 700;
 }
 
-/* Responsive for timeline */
+
 @media (max-width: 768px) {
     .timeline-item {
         flex-direction: column;
@@ -1111,11 +1095,11 @@ body.no-scroll {
     
     .parallax-section {
         height: 50vh;
-        background-attachment: scroll; /* Fallback for mobile */
+        background-attachment: scroll; 
     }
 }
 
-/* Learn More Button for About Card */
+
 .learn-more-btn {
     padding: 0.9rem 2rem !important;
     font-size: 0.95rem !important;
@@ -1124,7 +1108,7 @@ body.no-scroll {
     margin: 0 !important;
 }
 
-/* Add this to your existing CSS - Timeline Animation */
+
 .timeline-item {
     display: flex;
     align-items: flex-start;
@@ -1180,7 +1164,6 @@ body.no-scroll {
     font-weight: 700;
 }
 
-/* TEXT-ONLY FULL-PAGE MILESTONES - STANDARD SIZE */
 .company-timeline {
     padding: 0 !important;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -1232,7 +1215,7 @@ body.no-scroll {
     margin-bottom: 1.5rem;
 }
 
-/* SIMPLE YEAR BADGES - NO ICONS */
+
 .milestone-year-badge,
 .founding-milestone .milestone-badge-large {
     min-width: 140px;
@@ -1255,7 +1238,7 @@ body.no-scroll {
     line-height: 1.2;
 }
 
-/* WHITE IMAGE PLACEHOLDER */
+
 .milestone-image-placeholder {
     background: white;
     padding: 4rem 2rem;
@@ -1282,7 +1265,7 @@ body.no-scroll {
     color: #1e3a8a;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 992px) {
     .milestone-fullpage-content {
         flex-direction: column;
@@ -1299,9 +1282,7 @@ body.no-scroll {
     }
 }
 
-/* ========================================
-   COMPLETE PARALLAX TIMELINE - FIXED VERSION
-   ======================================== */
+
 .parallax-timeline-section {
     position: relative;
     min-height: 140vh;
@@ -1505,7 +1486,7 @@ body.no-scroll {
     border-color: rgba(255,255,255,0.8) !important;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 768px) {
     .timeline-milestone {
         flex-direction: column !important;
@@ -1522,7 +1503,7 @@ body.no-scroll {
     .timeline-milestone { padding: 1.8rem !important; }
 }
 
-/* FIXED Timeline Animation - ADD TO BOTTOM OF style.css */
+
 .timeline-milestone {
     opacity: 0 !important;
     transform: translateY(60px) !important;
@@ -1534,7 +1515,7 @@ body.no-scroll {
     transform: translateY(0) !important;
 }
 
-/* Ensure all content inside is visible */
+
 .timeline-milestone *,
 .timeline-milestone .milestone-details,
 .timeline-milestone .milestone-text,
@@ -1544,12 +1525,12 @@ body.no-scroll {
     opacity: 1 !important;
 }
 
-/* TEMPORARY DEBUG - REMOVE AFTER TESTING */
+
 .timeline-milestone {
     border: 3px solid #ff0000 !important;
 }
 
-/* FULL-PAGE MILESTONE SECTIONS */
+
 .company-timeline {
     padding: 0 !important;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -1622,12 +1603,12 @@ body.no-scroll {
 .founding-milestone .milestone-badge-large {
     width: 220px;
     height: 220px;
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);  /* ← DELETE YELLOW */
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);  
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 30px 80px rgba(251, 191, 36, 0.5);     /* ← DELETE YELLOW */
+    box-shadow: 0 30px 80px rgba(251, 191, 36, 0.5);   
     flex-shrink: 0;
 }
 
@@ -1639,7 +1620,7 @@ body.no-scroll {
     line-height: 1.1;
 }
 
-/* WHITE IMAGE PLACEHOLDER */
+
 .milestone-image-placeholder {
     background: white;
     padding: 4rem 2rem;
@@ -1682,7 +1663,6 @@ body.no-scroll {
     line-height: 1.5;
 }
 
-/* RESPONSIVE */
 @media (max-width: 992px) {
     .milestone-fullpage-content {
         flex-direction: column;
@@ -1721,13 +1701,13 @@ body.no-scroll {
     }
 }
 
-/* PERFECT CENTERED IMAGE - NO CUTTING */
+
 .milestone-image-placeholder {
     width: 100%;
     padding: 0 !important;
     margin: 0 auto;
     position: relative;
-    overflow: visible; /* Allow image to extend */
+    overflow: visible; 
     background: none;
     display: block;
 }
@@ -1735,15 +1715,15 @@ body.no-scroll {
 .milestone-real-image,
 .milestone-image-overlay {
     width: 100%;
-    max-width: 1400px; /* Match content max-width */
+    max-width: 1400px; 
     height: 500px;
     object-fit: cover;
-    object-position: center center; /* CENTER THE IMAGE */
+    object-position: center center;
     display: block;
     border-radius: 0 0 24px 24px;
     box-shadow: 0 30px 80px rgba(0,0,0,0.2);
     transition: all 0.4s ease;
-    margin: 0 auto !important; /* Perfect center */
+    margin: 0 auto !important; 
 }
 
 .milestone-real-image:hover,
@@ -1752,7 +1732,6 @@ body.no-scroll {
     box-shadow: 0 40px 100px rgba(0,0,0,0.3);
 }
 
-/* Ensure container matches image width */
 .company-timeline,
 .milestone-fullpage {
     max-width: 1400px;
@@ -1763,7 +1742,7 @@ body.no-scroll {
 .milestone-fullpage-content {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 6rem 5% 0; /* Remove bottom padding */
+    padding: 6rem 5% 0; 
 }
 
 /* RESPONSIVE */
@@ -1799,34 +1778,34 @@ body.no-scroll {
     }
 }
 
-/* FIX MILESTONE TEXT TO 1208x500 */
+
 .milestone-fullpage-text {
-    max-width: 1208px !important; /* Exact width you want */
-    width: 1208px !important; /* Force exact width */
-    margin: 0 auto !important; /* Center the 1208px container */
+    max-width: 1208px !important; 
+    width: 1208px !important; 
+    margin: 0 auto !important; 
     position: relative;
     padding-top: 5rem;
     padding-bottom: 4rem;
     padding-left: 0 !important;
-    flex: none !important; /* Override flex shrink */
+    flex: none !important; 
 }
 
-/* Container must support 1208px */
+
 .milestone-fullpage-content {
-    max-width: 1400px !important; /* Larger than text */
+    max-width: 1400px !important; 
     width: 100%;
     margin: 0 auto;
-    padding: 6rem 2% 4rem !important; /* Less side padding */
+    padding: 6rem 2% 4rem !important; 
 }
 
-/* Title - left within 1208px container */
+
 .milestone-fullpage-text h2 {
     max-width: 650px !important;
     margin-left: 2rem !important;
     text-align: left !important;
 }
 
-/* Paragraph - center within 1208px */
+
 .milestone-fullpage-text p {
     max-width: 1000px !important;
     margin-left: auto !important;
@@ -1834,7 +1813,7 @@ body.no-scroll {
     padding: 0 6% !important;
 }
 
-/* Override all previous conflicting rules */
+
 .milestone-fullpage-text,
 .milestone-fullpage-text * {
     max-width: 1208px !important;
@@ -1855,11 +1834,8 @@ body.no-scroll {
     }
 }
 
-/* ========================================
-   COMPLETE RESPONSIVENESS FIX - ADD TO END
-   ======================================== */
 
-/* DESKTOP & TABLET (1200px+) - PERFECT AS IS */
+
 @media (min-width: 1200px) {
     .container, .nav-container {
         max-width: 1200px;
@@ -1905,7 +1881,7 @@ body.no-scroll {
     }
 }
 
-/* TABLET (768px - 992px) */
+
 @media (max-width: 992px) and (min-width: 769px) {
     .hamburger { 
         display: flex !important; 
@@ -2029,7 +2005,7 @@ body.no-scroll {
     }
 }
 
-/* MOBILE LARGE (481px - 767px) */
+
 @media (max-width: 768px) and (min-width: 481px) {
     .container, .nav-container {
         max-width: 100%;
@@ -2147,7 +2123,7 @@ body.no-scroll {
     }
 }
 
-/* MOBILE MEDIUM (361px - 480px) */
+
 @media (max-width: 480px) and (min-width: 361px) {
     .container, .nav-container {
         padding: 0 15px;
@@ -2233,7 +2209,7 @@ body.no-scroll {
     }
 }
 
-/* MOBILE SMALL (320px - 360px) */
+
 @media (max-width: 360px) {
     .container, .nav-container {
         padding: 0 12px;
@@ -2296,7 +2272,7 @@ body.no-scroll {
     }
 }
 
-/* ULTRA SMALL DEVICES (<320px) */
+
 @media (max-width: 319px) {
     * {
         font-size: 14px !important;
@@ -2316,7 +2292,7 @@ body.no-scroll {
     }
 }
 
-/* FIX ALL TIMELINE RESPONSIVENESS */
+
 @media (max-width: 992px) {
     .parallax-timeline-bg {
         background-attachment: scroll !important;
@@ -2362,12 +2338,11 @@ body.no-scroll {
     }
 }
 
-/* SMOOTH SCROLLING ON ALL DEVICES */
+
 html {
     scroll-behavior: smooth;
 }
 
-/* NO CONFLICTS - FORCE RESPONSIVE GRIDS */
 .about-grid {
     display: grid !important;
 }
@@ -2399,7 +2374,7 @@ html {
 }
 
 .cta-button.full-width .btn-text {
-    display: block;  /* ✅ Ensures proper display */
+    display: block;  
 }
 
 html {
@@ -2412,7 +2387,7 @@ html {
     z-index: 1000;
 }
 
-/* ✅ MILESTONE ANIMATION - YOUR ELEMENTS */
+
 .milestone-fullpage {
     opacity: 0 !important;
     transform: translateY(100px) !important;
@@ -2424,7 +2399,7 @@ html {
     transform: translateY(0) !important;
 }
 
-/* Smooth content inside */
+
 .milestone-fullpage-text h2,
 .milestone-fullpage-text p {
     opacity: 0;
@@ -2438,7 +2413,7 @@ html {
     transform: translateY(0) !important;
 }
 
-/* Image animation */
+
 .milestone-real-image {
     opacity: 0;
     transform: scale(0.95);
@@ -2450,7 +2425,7 @@ html {
     transform: scale(1) !important;
 }
 
-/* DROPDOWN MENU */
+
 .dropdown {
     position: relative;
 }
@@ -2516,7 +2491,7 @@ html {
     border-radius: 12px 12px 0 0;
 }
 
-/* Mobile Dropdown */
+
 @media (max-width: 992px) {
     .dropdown-menu {
         position: static;
@@ -2536,7 +2511,7 @@ html {
     }
 }
 
-/* LEGAL FOOTER */
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -2572,12 +2547,6 @@ html {
     .legal-links a { font-size: 0.85rem; padding: 0.4rem 0.8rem; }
 }
 
-/* ========================================
-   PRIVACY | COOKIES | TERMS & CONDITIONS
-   PERFECT DESIGN - ADD TO END OF style.css
-   ======================================== */
-
-/* 1. LEGAL PAGE HERO */
 .legal-hero {
     min-height: 70vh;
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
@@ -2642,7 +2611,7 @@ html {
     padding: 0 20px;
 }
 
-/* 3. PERFECT LEGAL CARD */
+
 .legal-card {
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(30px);
@@ -2758,7 +2727,6 @@ html {
     text-decoration: underline;
 }
 
-/* 4. TABLE STYLES */
 .legal-card table {
     width: 100%;
     border-collapse: collapse;
@@ -2790,7 +2758,7 @@ html {
     background: #f8fafc;
 }
 
-/* 5. HIGHLIGHT BOXES */
+
 .highlight-box {
     background: linear-gradient(135deg, #fef3c7, #fde68a);
     border: 2px solid #fbbf24;
@@ -2825,7 +2793,7 @@ html {
     font-size: 1.1rem;
 }
 
-/* 6. LAST UPDATED */
+
 .last-updated {
     background: rgba(30, 58, 138, 0.05);
     border: 2px solid #e2e8f0;
@@ -2841,7 +2809,7 @@ html {
     font-size: 1.2rem;
 }
 
-/* 7. BACK TO TOP BUTTON */
+
 .back-to-top {
     position: fixed;
     bottom: 2rem;
@@ -2871,7 +2839,7 @@ html {
     box-shadow: 0 20px 50px rgba(251, 191, 36, 0.5);
 }
 
-/* 8. RESPONSIVE - LEGAL PAGES */
+
 @media (max-width: 1200px) {
     .legal-container {
         max-width: 950px;
@@ -3018,7 +2986,7 @@ html {
     }
 }
 
-/* 9. FOOTER FIX FOR LEGAL PAGES - ASHY WHITE */
+
 .legal-page .footer-section {
     background: #f5f5f5 !important;
 }
@@ -3054,19 +3022,17 @@ html {
     color: #1e3a8a !important;
 }
 
-/* 10. CUSTOM LOGO FIX */
 .custom-logo {
     max-width: 70px;
     height: auto;
     border-radius: 8px;
 }
 
-/* 11. SMOOTH SCROLL FOR LEGAL PAGES */
+
 .legal-content {
     scroll-margin-top: 100px;
 }
 
-/* 12. PRINT STYLES */
 @media print {
     .navbar, .back-to-top, .footer-section {
         display: none !important;
@@ -3084,11 +3050,7 @@ html {
     }
 }
 
-/* ========================================
-   STICKY NAVBAR LEGAL PAGES - Cookie/Privacy
-   ======================================== */
 
-/* 1. STICKY NAVBAR CONTAINER */
 .legal-navbar-sticky {
     position: sticky;
     top: 80px; /* Below main navbar */
@@ -3100,7 +3062,7 @@ html {
     margin-bottom: 2rem;
 }
 
-/* 2. PERFECT LEGAL NAVBAR CARD */
+
 .legal-nav-card {
     max-width: 1200px;
     margin: 0 auto;
@@ -3190,7 +3152,6 @@ html {
     border-color: #1e3a8a;
 }
 
-/* 3. COOKIE POLICY SPECIAL */
 .cookie-policy .legal-nav-icon i {
     font-size: 2.5rem;
 }
@@ -3201,12 +3162,12 @@ html {
     -webkit-text-fill-color: transparent;
 }
 
-/* 4. PRIVACY POLICY SPECIAL */
+
 .privacy-policy .legal-nav-icon {
     background: linear-gradient(135deg, #1e3a8a, #3b82f6);
 }
 
-/* 5. RESPONSIVE */
+
 @media (max-width: 992px) {
     .legal-navbar-sticky {
         top: 70px;
@@ -3282,7 +3243,7 @@ html {
     }
 }
 
-/* 6. ANIMATION ON SCROLL */
+
 .legal-navbar-sticky {
     opacity: 0;
     transform: translateY(-20px);
@@ -3303,13 +3264,12 @@ html {
     left: 0;
     width: 100%;
     height: 100vh;
-    /* ✅ HERO BACKGROUND + OVERLAY */
+  
     background: 
-        /* Hero fiber background */
+        
         url('Bg1.png') center/cover no-repeat fixed,
-        /* Dark overlay matching hero */
         rgba(30, 58, 138, 0.92),
-        /* Gradient overlay */
+        
         linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(59, 130, 246, 0.85) 100%);
     backdrop-filter: blur(20px);
     display: flex;
@@ -3340,7 +3300,6 @@ html {
     margin: 0 auto;
     padding: clamp(2.5rem, 6vw, 4rem);
     text-align: center;
-    /* ✅ PERFECT GLASSMORPHISM MATCHING HERO */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(30px);
     border-radius: 28px;
@@ -3406,7 +3365,7 @@ html {
     color: #1e3a8a !important;
 }
 
-/* BUTTONS - HERO MATCHING COLORS */
+
 .cookie-banner button {
     padding: clamp(1rem, 3vw, 1.3rem) clamp(2rem, 4vw, 3rem);
     border-radius: 50px;
@@ -3423,7 +3382,7 @@ html {
     overflow: hidden;
 }
 
-/* Accept Button - YELLOW HERO MATCH */
+
 .cookie-banner button:first-of-type {
     background: linear-gradient(135deg, #fbbf24, #f59e0b) !important;
     color: white !important;
@@ -3437,7 +3396,6 @@ html {
     box-shadow: 0 30px 60px rgba(251, 191, 36, 0.6) !important;
 }
 
-/* Reject Button - BLUE HERO MATCH */
 .cookie-banner button:last-of-type {
     background: rgba(255, 255, 255, 0.9) !important;
     color: #1e3a8a !important;
@@ -3454,7 +3412,7 @@ html {
     box-shadow: 0 25px 60px rgba(30, 58, 138, 0.5) !important;
 }
 
-/* RESPONSIVE */
+
 @media (max-width: 768px) {
     .cookie-banner button:first-of-type {
         margin-right: 0;
