@@ -117,13 +117,13 @@ function initForm() {
         submitBtn.disabled = true;
 
         const formData = {
-            fullName: document.getElementById('fullName').value.trim(),
-            phone: document.getElementById('phone').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            plan: document.getElementById('plan').value,
-            address: document.getElementById('address').value.trim(),
-            date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }),
-            plan_price: getPlanPrice(document.getElementById('plan').value)
+            Full_Name: document.getElementById('fullName').value.trim(),
+            Phone: document.getElementById('phone').value.trim(),
+            Email: document.getElementById('email').value.trim(),
+            Services: document.getElementById('plan').value,
+            Address: document.getElementById('address').value.trim(),
+            Date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }),
+            Price_Description: getPlanPrice(document.getElementById('plan').value)
         };
 
         try {
@@ -167,11 +167,11 @@ function initForm() {
 
 function getPlanPrice(planValue) {
     const plans = { 
-        '799': '₱799', 
-        '999': '₱999', 
-        '1299': '₱1,299', 
-        '1499': '₱1,499', 
-        '2000': '₱2,000',
+        '50Mbps': '₱799', 
+        '100Mbps': '₱999', 
+        '150Mbps': '₱1,299', 
+        '200Mbps': '₱1,499', 
+        '300Mbps': '₱2,000',
         'cctv': 'CCTV Installation',
         'firewall': 'Firewall VPN Setup',
         'network': 'Network Rehabilitation',
