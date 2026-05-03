@@ -150,7 +150,7 @@ function initForm() {
                 });
                 
                 setTimeout(() => {
-                    alert('✅ Success! The Application has been sent AND SAVED to records. Thank you!');
+                    alert('✅ Success! The Application has been sent and will contact you as soon as possible. Thank you!');
                     window.location.href = window.location.pathname + '#home';
                     window.location.reload();
                 }, 1000);
