@@ -36,6 +36,31 @@ function initNavigation() {
     }
 }
 
+// ✅ ADD THIS NEW FUNCTION (put it after initNavigation())
+function initAdminNavigation() {
+    const adminLink = document.getElementById('adminLink');
+    
+    if (adminLink) {
+        console.log('✅ Admin link found');
+        adminLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = '';
+        });
+    }
+}
+
+// ✅ UPDATE YOUR DOMContentLoaded (add initAdminNavigation())
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded');
+    
+    initNavigation();
+    initAdminNavigation();  // ✅ ADD THIS LINE
+    initSmoothScroll();
+    initAnimations();
+    initForm();
+    initTimelineAnimation();
+});
+
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
