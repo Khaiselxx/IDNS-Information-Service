@@ -3436,3 +3436,45 @@ html {
         padding: 2rem 1.5rem;
     }
 }
+
+/* ADD to your style.css */
+.loading-placeholder {
+    background: linear-gradient(90deg, #f3f4f6 0%, #e5e7eb 50%, #f3f4f6 100%) !important;
+    background-size: 200% 100% !important;
+    animation: loadingShimmer 1.5s infinite !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 400px !important;
+    color: #9ca3af !important;
+    border: 2px dashed #d1d5db !important;
+}
+
+.loading-spinner {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fbbf24;
+}
+
+@keyframes loadingShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.no-plans-placeholder {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 6rem 2rem;
+    background: rgba(255,255,255,0.8);
+    border-radius: 24px;
+    border: 3px dashed #d1d5db;
+    color: #6b7280;
+}
+
+.no-plans-placeholder i {
+    font-size: 5rem;
+    color: #fbbf24;
+    margin-bottom: 2rem;
+    display: block;
+}

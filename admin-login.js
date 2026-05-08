@@ -1,7 +1,7 @@
 // Admin credentials
 const ADMIN_CREDENTIALS = {
-    username: 'IDNS_admin',
-    password: '1DNS_1nf0rmat10nServ1ce'
+    username: 'admin',
+    password: 'admin123'
 };
 
 document.addEventListener('DOMContentLoaded', function() {

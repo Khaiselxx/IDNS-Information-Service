@@ -310,7 +310,6 @@ body {
 .btn {
     background: linear-gradient(135deg, #fbbf24, #f59e0b);
     color: white;
-    padding: 2rem;
     padding: 1.6rem 3rem;
     border: none;
     border-radius: 50px;
@@ -342,35 +341,51 @@ body {
 .btn-danger { background: linear-gradient(135deg, #e74c3c, #c0392b); box-shadow: 0 20px 50px rgba(231, 76, 60, 0.4); padding: 1rem 2rem; font-size: 1rem; }
 .btn-danger:hover { box-shadow: 0 25px 60px rgba(231, 76, 60, 0.5); }
 
-/* TABLES - Plan Card Style */
-.table-container {
+/* TABLES - FIXED RESPONSIVE VERSION */
+.table-wrapper {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     border-radius: 28px;
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
     border: 2px solid rgba(255, 255, 255, 0.4);
+    margin: 2rem 0;
+    max-height: 70vh;
+}
+
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: 70vh;
 }
 
 .admin-table {
     width: 100%;
+    min-width: 800px; /* Ensures table doesn't collapse too much */
     border-collapse: collapse;
+    table-layout: auto;
 }
 
 .admin-table th {
     background: linear-gradient(135deg, #1e3a8a, #3b82f6);
     color: white;
-    padding: 2.2rem 2rem;
+    padding: 1.8rem 1.5rem;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .admin-table td {
-    padding: 2.5rem 2rem;
+    padding: 2rem 1.5rem;
     border-bottom: 1px solid rgba(226, 232, 240, 0.5);
     vertical-align: middle;
+    word-break: break-word;
+    max-width: 250px;
 }
 
 .admin-table tr:hover {
@@ -383,7 +398,9 @@ body {
 
 .action-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    min-width: 140px;
 }
 
 /* STATUS BADGES */
@@ -394,6 +411,7 @@ body {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.3px;
+    white-space: nowrap;
 }
 
 .status-badge.active {
@@ -462,6 +480,9 @@ code {
 @media (max-width: 1200px) {
     .admin-container { padding: 0 25px; }
     .form-grid { grid-template-columns: 1fr; gap: 3rem; }
+    
+    .table-wrapper { margin: 1.5rem 0; }
+    .table-container { max-height: 60vh; }
 }
 
 @media (max-width: 992px) {
@@ -472,6 +493,9 @@ code {
     .form-column { padding: 3rem 2.5rem; }
     
     .section-title { padding: 1rem 2.5rem; font-size: 2rem; }
+    
+    .admin-table th { padding: 1.5rem 1.2rem; font-size: 0.95rem; }
+    .admin-table td { padding: 1.8rem 1.2rem; max-width: 200px; }
 }
 
 @media (max-width: 768px) {
@@ -485,8 +509,24 @@ code {
     
     .section-title { padding: 0.9rem 2rem; font-size: 1.8rem; flex-wrap: wrap; }
     
+    .table-wrapper { margin: 1rem 0; border-radius: 20px; }
+    .table-container { max-height: 50vh; }
     .admin-table th,
-    .admin-table td { padding: 2rem 1.5rem; }
+    .admin-table td { padding: 1.5rem 1rem; font-size: 0.9rem; }
+    .admin-table td { max-width: 150px; }
+    
+    .action-buttons { 
+        flex-direction: column; 
+        gap: 0.5rem; 
+        min-width: 120px;
+        align-items: stretch;
+    }
+    .btn-warning, .btn-danger { 
+        width: 100%; 
+        justify-content: center; 
+        padding: 0.9rem 1rem; 
+        font-size: 0.9rem;
+    }
     
     .message { padding: 2rem 2.5rem; flex-direction: column; text-align: center; gap: 1rem; }
 }
@@ -502,17 +542,23 @@ code {
     
     .btn { padding: 1.3rem 2.5rem; font-size: 1rem; }
     
+    .table-wrapper { border-radius: 16px; }
+    .table-container { max-height: 45vh; }
     .admin-table th,
-    .admin-table td { padding: 1.8rem 1.2rem; font-size: 0.95rem; }
+    .admin-table td { padding: 1.2rem 0.8rem; font-size: 0.85rem; }
+    .admin-table td { max-width: 120px; }
     
-    .action-buttons { flex-direction: column; gap: 0.8rem; }
-    .btn-warning, .btn-danger { width: 100%; justify-content: center; padding: 1.2rem; }
+    .action-buttons { min-width: 100px; }
+    .btn-warning, .btn-danger { padding: 0.8rem; font-size: 0.85rem; }
 }
 
 @media (max-width: 360px) {
     .admin-header h1 { font-size: 2.2rem; }
     .section-title { font-size: 1.6rem; padding: 0.8rem 1.8rem; }
     .form-column h3 { font-size: 1.5rem; }
+    
+    .admin-table th,
+    .admin-table td { padding: 1rem 0.6rem; font-size: 0.8rem; }
 }
 
 /* ANIMATIONS */
@@ -528,7 +574,7 @@ code {
 }
 
 .form-column,
-.admin-table {
+.table-wrapper {
     animation: fadeInUp 0.8s ease-out;
 }
 
@@ -560,6 +606,7 @@ code {
 /* CUSTOM SCROLLBAR */
 ::-webkit-scrollbar {
     width: 12px;
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -575,4 +622,17 @@ code {
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+/* MOBILE TABLE IMPROVEMENTS */
+@media (max-width: 768px) {
+    .admin-table {
+        min-width: 700px;
+        font-size: 0.9rem;
+    }
+    
+    .status-badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
 }

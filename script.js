@@ -1,11 +1,18 @@
+// ========================================
+// IDNS MAIN SITE - COMPLETE DYNAMIC VERSION
+// ========================================
+
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded');
+    console.log('🚀 IDNS Main Site Loaded - Dynamic Mode');
     
     initNavigation();
+    initAdminNavigation();
     initSmoothScroll();
     initAnimations();
-    initForm();  // ✅ NOW WITH SHEETDB!
+    initForm();
     initTimelineAnimation();
+    loadDynamicPlans();      // ✅ NEW: Dynamic plans
+    updatePlanDropdown();    // ✅ NEW: Dynamic dropdown
 });
 
 function initNavigation() {
@@ -36,31 +43,131 @@ function initNavigation() {
     }
 }
 
-// ✅ ADD THIS NEW FUNCTION (put it after initNavigation())
 function initAdminNavigation() {
     const adminLink = document.getElementById('adminLink');
-    
     if (adminLink) {
-        console.log('✅ Admin link found');
         adminLink.addEventListener('click', function(e) {
             e.preventDefault();
-            window.location.href = '';
+            window.location.href = 'admin-login.html';
         });
     }
 }
 
-// ✅ UPDATE YOUR DOMContentLoaded (add initAdminNavigation())
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded');
+// ========================================
+// ✅ DYNAMIC PLANS SYSTEM (NEW!)
+// ========================================
+function loadDynamicPlans() {
+    console.log('🔄 Loading dynamic plans...');
     
-    initNavigation();
-    initAdminNavigation();  // ✅ ADD THIS LINE
-    initSmoothScroll();
-    initAnimations();
-    initForm();
-    initTimelineAnimation();
+    const plansGrid = document.getElementById('dynamicPlansGrid');
+    if (!plansGrid) return;
+    
+    const plans = JSON.parse(localStorage.getItem('idnsPlans') || '[]');
+    
+    // Show loading
+    plansGrid.innerHTML = `
+        <div class="plan-card loading-placeholder">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <p>Loading plans from admin...</p>
+        </div>
+    `;
+    
+    setTimeout(() => {  // Simulate network delay
+        if (plans.length === 0) {
+            plansGrid.innerHTML = `
+                <div class="no-plans-placeholder">
+                    <i class="fas fa-cog"></i>
+                    <h3>No Plans Available Yet</h3>
+                    <p>Plans will appear here once admin adds them.<br>
+                    <small>Contact administrator to setup plans.</small></p>
+                </div>
+            `;
+            console.log('❌ No plans found');
+            return;
+        }
+        
+        // Sort by price (low to high)
+        plans.sort((a, b) => a.price - b.price);
+        
+        // Find popular/most expensive
+        const maxPricePlan = plans.reduce((max, plan) => plan.price > max.price ? plan : max);
+        
+        plansGrid.innerHTML = plans.map((plan, index) => `
+            <div class="plan-card ${plan.popular || plan === maxPricePlan ? 'popular' : ''}">
+                ${(plan.popular || plan === maxPricePlan) ? '<div class="popular-badge">🔥 BEST VALUE</div>' : ''}
+                <div class="plan-price">₱${plan.price.toLocaleString()}</div>
+                <div class="plan-speed">${plan.speed}</div>
+                <div class="plan-features">
+                    <div><i class="fas fa-check"></i>Unlimited Data</div>
+                    <div><i class="fas fa-check"></i>Quick Support</div>
+                    <div><i class="fas fa-check"></i>No lock-in Contract</div>
+                </div>
+                <a href="#applyForm" class="plan-cta">Apply Now</a>
+            </div>
+        `).join('');
+        
+        console.log(`✅ Loaded ${plans.length} dynamic plans`);
+    }, 800);
+}
+
+// ========================================
+// ✅ DYNAMIC PLAN DROPDOWN (NEW!)
+// ========================================
+function updatePlanDropdown() {
+    const planSelect = document.getElementById('plan');
+    if (!planSelect) return;
+    
+    const plans = JSON.parse(localStorage.getItem('idnsPlans') || '[]');
+    
+    let options = `
+        <option value="" disabled selected>Select Service/Plan</option>
+    `;
+    
+    // ✅ Dynamic plans first
+    plans.forEach(plan => {
+        const popular = plan.popular ? ' ⭐' : '';
+        options += `<option value="${plan.speed}">${plan.speed} - ₱${plan.price.toLocaleString()}${popular}</option>`;
+    });
+    
+    // Static services
+    options += `
+        <optgroup label="Other Services">
+            <option value="cctv">CCTV Installation</option>
+            <option value="firewall">Firewall VPN</option>
+            <option value="network">Network Rehabilitation</option>
+            <option value="cabling">Structured Cabling</option>
+            <option value="ftth">FTTH Installation & Design</option>
+            <option value="fiber">Fiber Lying</option>
+            <option value="p2p">P2P Installation</option>
+        </optgroup>
+    `;
+    
+    planSelect.innerHTML = options;
+    console.log(`✅ Updated dropdown with ${plans.length} plans`);
+}
+
+// ========================================
+// ✅ REAL-TIME SYNC WITH ADMIN (NEW!)
+// ========================================
+window.addEventListener('adminDataUpdated', function() {
+    console.log('🔄 Admin updated plans - refreshing...');
+    loadDynamicPlans();
+    updatePlanDropdown();
 });
 
+// Refresh when returning from other tabs
+document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) {
+        loadDynamicPlans();
+        updatePlanDropdown();
+    }
+});
+
+// ========================================
+// YOUR EXISTING FUNCTIONS (unchanged)
+// ========================================
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -94,45 +201,27 @@ function initAnimations() {
 }
 
 function initTimelineAnimation() {
-    console.log('Timeline animation initialized');
-    
     const milestoneSections = document.querySelectorAll('.milestone-fullpage');
-    console.log('Found milestones:', milestoneSections.length);
-    
     if (milestoneSections.length > 0) {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        console.log('Animating:', entry.target);
                         entry.target.classList.add('animate');
                         observer.unobserve(entry.target);
                     }
                 });
             },
-            { 
-                threshold: 0.3,
-                rootMargin: '0px 0px -20% 0px'
-            }
+            { threshold: 0.3, rootMargin: '0px 0px -20% 0px' }
         );
-
         milestoneSections.forEach(section => observer.observe(section));
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    initTimelineAnimation();
-    window.addEventListener('load', initTimelineAnimation);
-});
-
-
 function initForm() {
     emailjs.init("du3WGCOq2EcfxjyKh");
-
     const form = document.getElementById('applyForm');
     const submitBtn = document.getElementById('submitBtn');
-    
-
     const SHEETDB_API = 'https://sheetdb.io/api/v1/641wo3uhxnqoq';
 
     form.addEventListener('submit', async function(e) {
@@ -152,32 +241,25 @@ function initForm() {
         };
 
         try {
- 
             await fetch(SHEETDB_API, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
-            console.log('✅ Google Sheets saved!');
-
-   
-            const emailResponse = await emailjs.send('service_9obuszs', 'template_bfu67as', formData);
-            console.log('✅ Email sent!');
+            
+            await emailjs.send('service_9obuszs', 'template_bfu67as', formData);
 
             setTimeout(() => {
                 const homeSection = document.getElementById('home');
                 const navbarHeight = 90;
                 const homeTop = homeSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
                 
-                window.scrollTo({
-                    top: homeTop,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: homeTop, behavior: 'smooth' });
                 
                 setTimeout(() => {
-                    alert('✅ Success! The Application has been sent and will contact you as soon as possible. Thank you!');
+                    alert('✅ Success! Application sent. We will contact you soon!');
+                    form.reset();
                     window.location.href = window.location.pathname + '#home';
-                    window.location.reload();
                 }, 1000);
             }, 500);
 
@@ -190,13 +272,14 @@ function initForm() {
     });
 }
 
+// ✅ UPDATED: Dynamic price lookup
 function getPlanPrice(planValue) {
-    const plans = { 
-        '50Mbps': '₱799', 
-        '100Mbps': '₱999', 
-        '150Mbps': '₱1,299', 
-        '200Mbps': '₱1,499', 
-        '300Mbps': '₱2,000',
+    const plans = JSON.parse(localStorage.getItem('idnsPlans') || '[]');
+    const plan = plans.find(p => p.speed === planValue);
+    
+    if (plan) return `Plan ₱${plan.price.toLocaleString()}`;
+    
+    const services = { 
         'cctv': 'CCTV Installation',
         'firewall': 'Firewall VPN Setup',
         'network': 'Network Rehabilitation',
@@ -205,47 +288,26 @@ function getPlanPrice(planValue) {
         'fiber': 'Fiber Lying',
         'p2p': 'P2P Installation'
     };
-    return plans[planValue] || 'Custom Service';
+    return services[planValue] || 'Custom Service';
 }
 
-function initDropdowns() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        
-        toggle.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
-                e.preventDefault();
-                e.stopPropagation();
-                dropdown.classList.toggle('active');
-            }
-        });
-    });
-}
-
-
-setTimeout(() => {
-    if (!document.cookie.includes('cookies_accepted')) {
-        document.getElementById('cookieBanner').style.display = 'flex';
-        setTimeout(() => {
-            document.getElementById('cookieBanner').classList.add('show');
-        }, 50);
-    }
-}, 2000);
-
+// Cookie functions
 function acceptCookies() {
     document.cookie = "cookies_accepted=true; path=/; max-age=31536000";
     document.getElementById('cookieBanner').classList.remove('show');
-    setTimeout(() => {
-        document.getElementById('cookieBanner').style.display = 'none';
-    }, 500);
+    setTimeout(() => document.getElementById('cookieBanner').style.display = 'none', 500);
 }
 
 function rejectCookies() {
     document.cookie = "cookies_accepted=false; path=/; max-age=31536000";
     document.getElementById('cookieBanner').classList.remove('show');
-    setTimeout(() => {
-        document.getElementById('cookieBanner').style.display = 'none';
-    }, 500);
+    setTimeout(() => document.getElementById('cookieBanner').style.display = 'none', 500);
 }
+
+setTimeout(() => {
+    if (!document.cookie.includes('cookies_accepted')) {
+        const banner = document.getElementById('cookieBanner');
+        banner.style.display = 'flex';
+        setTimeout(() => banner.classList.add('show'), 50);
+    }
+}, 2000);

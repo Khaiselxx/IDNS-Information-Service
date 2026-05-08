@@ -135,76 +135,24 @@ if (!document.cookie.includes('cookies_accepted')) {
     </div>
 </section>
 
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="section-title">Our Fiber Internet Plans</h2>
-            <div class="plans-grid">
-                <div class="plan-card">
-                    <div class="plan-price">₱799</div>
-                    <div class="plan-speed">Up to 50Mbps</div>
-                    <div class="plan-features">
-                        <div><i class="fas fa-check"></i>Unlimited Data</div>
-                        <div><i class="fas fa-check"></i>Quick Support</div>
-                        <div><i class="fas fa-check"></i>No lock-in Contract</div>
-                    </div>
-                    <a href="#applyForm" class="plan-cta">Apply Now</a>
+    <!-- REPLACE your current #services section with this: -->
+<section id="services" class="services-section">
+    <div class="container">
+        <h2 class="section-title">Our Fiber Internet Plans</h2>
+        <div class="plans-grid" id="dynamicPlansGrid">
+            <!-- ✅ DYNAMIC PLANS WILL LOAD HERE -->
+            <div class="plan-card loading-placeholder">
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
                 </div>
-
-                <div class="plan-card popular">
-                    <div class="popular-badge">🔥 BEST VALUE</div>
-                    <div class="plan-price">₱999</div>
-                    <div class="plan-speed">Up to 100Mbps</div>
-                    <div class="plan-features">
-                        <div><i class="fas fa-check"></i>Unlimited Data</div>
-                        <div><i class="fas fa-check"></i>Quick Support</div>
-                        <div><i class="fas fa-check"></i>No lock-in Contract</div>
-                    </div>
-                    <a href="#applyForm" class="plan-cta">Apply Now</a>
-                </div>
-
-                <div class="plan-card">
-                    <div class="plan-price">₱1,299</div>
-                    <div class="plan-speed">Up to 150Mbps</div>
-                    <div class="plan-features">
-                        <div><i class="fas fa-check"></i>Unlimited Data</div>
-                        <div><i class="fas fa-check"></i>Quick Support</div>
-                        <div><i class="fas fa-check"></i>No lock-in Contract</div>
-                    </div>
-                    <a href="#applyForm" class="plan-cta">Apply Now</a>
-                </div>
-
-                <div class="plan-card">
-                    <div class="plan-price">₱1,499</div>
-                    <div class="plan-speed">Up to 200Mbps</div>
-                    <div class="plan-features">
-                        <div><i class="fas fa-check"></i>Unlimited Data</div>
-                        <div><i class="fas fa-check"></i>Quick Support</div>
-                        <div><i class="fas fa-check"></i>No lock-in Contract</div>
-                    </div>
-                    <a href="#applyForm" class="plan-cta">Apply Now</a>
-                </div>
-
-                <div class="plan-card">
-                    <div class="plan-price">₱2,000</div>
-                    <div class="plan-speed">Up to 300Mbps</div>
-                    <div class="plan-features">
-                        <div><i class="fas fa-check"></i>Unlimited Data</div>
-                        <div><i class="fas fa-check"></i>Quick Support</div>
-                        <div><i class="fas fa-check"></i>No lock-in Contract</div>
-                    </div>
-                    <a href="#applyForm" class="plan-cta">Apply Now</a>
-                </div>
-
-                <div class="plan-card">
-                    <div class="plan-price">Want for more?</div>
-                    <div class="plan-speed">We also have Different 
-                        services that may help you</div>
-                    <a href="other-services.html" class="plan-cta">Learn More</a>
-                </div>
-
+                <p>Loading plans...</p>
             </div>
         </div>
-    </section>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="other-services.html" class="cta-button">Other Services</a>
+        </div>
+    </div>
+</section>
 
     <section id="why-choose" class="content-section alternate-bg">
         <div class="container">
