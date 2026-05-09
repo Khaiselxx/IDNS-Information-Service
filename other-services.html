@@ -7,245 +7,133 @@
     <link rel="stylesheet" href="other-services-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <title>IDNS Information Service - Fast Fiber Internet | Laguna</title>
-    <meta name="description" content="Fastest fiber internet in Laguna. Unlimited data, reliable service. Plans from 799 Pesos. Apply now!">
-    <meta name="keywords" content="fiber internet Laguna, broadband Laguna, high speed internet, unlimited internet">
+    
+    <meta name="description" content="CCTV, Networking, Firewall, FTTH Installation & more. Professional IT services in Laguna.">
+    <meta name="keywords" content="CCTV Laguna, networking Laguna, IT services Laguna, firewall setup">
 
     <script type="application/ld+json">
     {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "IDNS Information Service",
-    "description": "Fiber internet provider in Laguna",
-    "url": "https://yourwebsite.com",
-    "telephone": "+63 967 442 4733"
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "IDNS Information Service",
+        "description": "Professional IT infrastructure services",
+        "url": "https://yourwebsite.com/other-services.html",
+        "telephone": "+63 967 442 4733"
     }
     </script>
-
 </head>
 
-<div id="cookieBanner" class="cookie-banner" style="display: none;">
-    <div style="max-width: 600px; margin: 0 auto; padding: 2rem; text-align: center;">
-        <h3 style="color: #fbbf24; margin-bottom: 1rem;">🍪 We use cookies</h3>
-        <p style="color: white; line-height: 1.6; margin-bottom: 1.5rem;">
-            This site uses cookies to improve your experience. 
-            <a href="/cookie-policy.html" style="color: #fbbf24;">Learn more</a>.
-        </p>
-        <button onclick="acceptCookies()" style="background: #fbbf24; color: white; padding: 1rem 2rem; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; margin-right: 1rem;">Accept</button>
-        <button onclick="rejectCookies()" style="background: transparent; color: white; padding: 1rem 2rem; border: 2px solid white; border-radius: 50px; font-weight: 700; cursor: pointer;">Reject</button>
-    </div>
-</div>
-
-<script>
-function acceptCookies() {
-    document.cookie = "cookies_accepted=true; path=/; max-age=31536000";
-    document.getElementById('cookieBanner').style.display = 'none';
-}
-function rejectCookies() {
-    document.cookie = "cookies_accepted=false; path=/; max-age=31536000";
-    document.getElementById('cookieBanner').style.display = 'none';
-}
-
-if (!document.cookie.includes('cookies_accepted')) {
-    setTimeout(() => {
-        document.getElementById('cookieBanner').style.display = 'block';
-    }, 2000);
-}
-</script>
-
 <body>
-    
-<nav class="navbar" id="navbar">
-    <div class="nav-container">
-        <div class="logo-placeholder">
-            <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
+    <!-- Navbar (Same as main site) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo-placeholder">
+                <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li class="dropdown">
+                    <a href="#services" class="nav-link dropdown-toggle active-page">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html#services" class="nav-link">Fiber Plans</a></li>
+                        <li><a href="other-services.html" class="nav-link active-page">Other Services</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#why-choose" class="nav-link">Why Choose Us</a></li>
+                <li><a href="index.html#applyForm" class="nav-link">Apply</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <ul class="nav-menu">
-            <li><a href="index.html#home" class="nav-link">Home</a></li>
-            <li><a href="index.html#about" class="nav-link">About</a></li>
-            <li class="dropdown">
-                <a href="#services" class="nav-link dropdown-toggle active">Services <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="index.html#services" class="nav-link">Fiber Plans</a></li>
-                    <li><a href="other-services.html" class="nav-link active-page">Other Services</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html#why-choose" class="nav-link">Why Choose Us</a></li>
-            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-fiber-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="header-title">Other Services</span>
+            </h1>
+            <p class="hero-subtitle">
+                Complete IT Infrastructure Solutions<br>
+                <span class="highlight">CCTV • Networking • Firewall • FTTH & More</span>
+            </p>
+            <a href="#services" class="cta-button">View Services</a>
         </div>
-    </div>
-</nav>
+    </section>
 
-<section class="hero-section">
-    <div class="hero-fiber-bg"></div>
-    <div class="hero-content">
-        <h1 class="hero-title">
-            <span class="header-title">Other Services</span>
-        </h1>
-        <p class="hero-subtitle">
-            Complete IT Infrastructure Solutions<br>
-            <span class="highlight">CCTV • Networking • ETC</span>
-        </p>
-        <a href="#services" class="cta-button">View Services</a>
-    </div>
-</section>
-
-<section id="services" class="services-section">
-    <div class="container">
-        <h2 class="section-title">Our Professional Services</h2>
-        
-        <div class="plans-grid">
+    <!-- Dynamic Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Professional Services</h2>
             
-            <div class="plan-card">
-                <div class="plan-icon">
-                    <i class="fas fa-video"></i>
+            <!-- ✅ DYNAMIC SERVICES GRID -->
+            <div class="services-grid" id="dynamicServicesGrid">
+                <!-- Loading placeholder -->
+                <div class="service-card loading-placeholder">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                    <p>Loading services from admin...</p>
                 </div>
-                <div class="plan-title">CCTV Installation</div>
-                <div class="plan-features">
-                    <div><i class="fas fa-check"></i> HD/4K Cameras</div>
-                    <div><i class="fas fa-check"></i> Night Vision</div>
-                    <div><i class="fas fa-check"></i> Remote Access</div>
-                    <div><i class="fas fa-check"></i> 24/7 Recording</div>
-                </div>
-                <a href="index.html#applyForm" class="plan-cta quote-btn">Apply Now</a>
             </div>
 
-            <div class="plan-card popular">
-                <div class="popular-badge">🔥 POPULAR</div>
-                <div class="plan-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <div class="plan-title">Firewall & VPN</div>
-                <div class="plan-features">
-                    <div><i class="fas fa-check"></i> Next-Gen Firewall</div>
-                    <div><i class="fas fa-check"></i> Secure VPN</div>
-                    <div><i class="fas fa-check"></i> Threat Detection</div>
-                    <div><i class="fas fa-check"></i> Remote Access</div>
-                </div>
-                <a href="index.html#applyForm" class="plan-cta quote-btn">Apply Now</a>
+            <!-- Back to Main Site -->
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="index.html#applyForm" class="cta-button">Apply for Service</a>
             </div>
-
-            <div class="plan-card">
-                <div class="plan-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <div class="plan-title">Network Rehabilitation</div>
-                <div class="plan-features">
-                    <div><i class="fas fa-check"></i> Network Audit</div>
-                    <div><i class="fas fa-check"></i> Optimization</div>
-                    <div><i class="fas fa-check"></i> Hardware Upgrade</div>
-                    <div><i class="fas fa-check"></i> 99.9% Uptime</div>
-                </div>
-                <a href="index.html#applyForm" class="plan-cta quote-btn">Apply Now</a>
-            </div>
-
-            <div class="plan-card">
-                <div class="plan-icon">
-                    <i class="fas fa-network-wired"></i>
-                </div>
-                <div class="plan-title">Structured Cabling</div>
-                <div class="plan-features">
-                    <div><i class="fas fa-check"></i> Cat6/Cat6A</div>
-                    <div><i class="fas fa-check"></i> Fiber Optic</div>
-                    <div><i class="fas fa-check"></i> Patch Panels</div>
-                    <div><i class="fas fa-check"></i> Certification</div>
-                </div>
-                <a href="index.html#applyForm" class="plan-cta quote-btn">Apply Now</a>
-            </div>
-
-            <div class="plan-card">
-                <div class="plan-icon">
-                    <i class="fas fa-sitemap"></i>
-                </div>
-                <div class="plan-title">FTTH Installation</div>
-                <div class="plan-features">
-                    <div><i class="fas fa-check"></i> GPON Design</div>
-                    <div><i class="fas fa-check"></i> Fiber Installation</div>
-                    <div><i class="fas fa-check"></i> ONT Setup</div>
-                    <div><i class="fas fa-check"></i> Testing</div>
-                </div>
-                <a href="index.html#applyForm" class="plan-cta quote-btn">Apply Now</a>
-            </div>
-
-            <div class="plan-card">
-                <div class="plan-icon">
-                    <i class="fas fa-route"></i>
-                </div>
-                <div class="plan-title">Fiber Lying</div>
-                <div class="plan-features">
-                    <div><i class="fas fa-check"></i> Aerial/Underground</div>
-                    <div><i class="fas fa-check"></i> Splicing</div>
-                    <div><i class="fas fa-check"></i> OTDR Testing</div>
-                    <div><i class="fas fa-check"></i> Certified</div>
-                </div>
-                <a href="index.html#applyForm" class="plan-cta quote-btn">Apply Now</a>
-            </div>
-
-            <div class="plan-card">
-                <div class="plan-icon">
-                    <i class="fas fa-link"></i>
-                </div>
-                <div class="plan-title">P2P Installation</div>
-                <div class="plan-features">
-                    <div><i class="fas fa-check"></i> Dedicated Fiber</div>
-                    <div><i class="fas fa-check"></i> 1Gbps+ Speeds</div>
-                    <div><i class="fas fa-check"></i> SLA Guarantee</div>
-                    <div><i class="fas fa-check"></i> Low Latency</div>
-                </div>
-                <a href="index.html#applyForm" class="plan-cta quote-btn">Apply Now</a>
-            </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
-<footer class="footer-section">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="logo-placeholder">
-                    <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
+    <!-- Footer (Same as main site) -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-placeholder">
+                        <img src="Logo.png" alt="IDNS Logo" class="custom-logo" width="70" height="60">
+                    </div>
+                    <p>Professional IT Services for Laguna Since 2020</p>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/IDNSinformationservicess" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
                 </div>
-                <p>Professional IT Services for Laguna Since 2020</p>
-                <div class="social-links">
-                    <a href="https://web.facebook.com/IDNSinformationservicess" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#services">Fiber Plans</a></li>
+                        <li><a href="#services">Other Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +63 967 442 4733</li>
+                        <li><i class="fas fa-envelope"></i> inds.information@gmail.com</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#services">Fiber Plans</a></li>
-                    <li><a href="#services">Other Services</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <ul>
-                    <li><i class="fas fa-phone"></i> +63 967 442 4733</li>
-                    <li><i class="fas fa-envelope"></i> inds.information@gmail.com</li>
-                </ul>
+            <div class="footer-bottom">
+                <div class="legal-links">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="cookie-policy.html">Cookies</a>
+                </div>
+                <p>&copy; 2020 IDNS Information. All rights reserved.</p>
             </div>
         </div>
-        
-        <div class="footer-bottom">
-            <div class="legal-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="cookie-policy.html">Cookies</a>
-        </div>
-    <p>&copy; 2020 IDNS Information. All rights reserved.</p>
-</div>
-    </div>
-</footer>
+    </footer>
 
-<script src="other-services-script.js"></script>
+    <script src="other-services.js"></script>
 </body>
 </html>

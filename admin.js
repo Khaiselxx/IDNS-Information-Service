@@ -286,3 +286,61 @@ function loadAllData() {
     loadPromos();
     loadServices();
 }
+
+// ========================================
+// SERVICES MANAGEMENT - ADD THIS
+// ========================================
+document.getElementById('addServiceForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('serviceName').value.trim();
+    const value = document.getElementById('serviceValue').value.trim().toLowerCase();
+    
+    if (!name || !value) {
+        showMessage('Please fill both fields!', true);
+        return;
+    }
+    
+    const services = getStorageData(ADMIN_CONFIG.storageKeys.services);
+    services.push({ name, value });
+    saveStorageData(ADMIN_CONFIG.storageKeys.services, services);
+    
+    updateMainSite();
+    loadServices();
+    showMessage('✅ Service added!');
+    this.reset();
+});
+
+function loadServices() {
+    const services = getStorageData(ADMIN_CONFIG.storageKeys.services);
+    const tbody = document.querySelector('#servicesTable tbody');
+    tbody.innerHTML = '';
+    
+    if (services.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 40px;">No services yet</td></tr>';
+        return;
+    }
+    
+    services.forEach((service, index) => {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+            <td><strong>${service.name}</strong></td>
+            <td><code>${service.value}</code></td>
+            <td>
+                <button class="btn btn-danger" onclick="deleteService(${index})">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </td>
+        `;
+    });
+}
+
+function deleteService(index) {
+    if (confirm('Delete service?')) {
+        const services = getStorageData(ADMIN_CONFIG.storageKeys.services);
+        services.splice(index, 1);
+        saveStorageData(ADMIN_CONFIG.storageKeys.services, services);
+        updateMainSite();
+        loadServices();
+        showMessage('✅ Service deleted!');
+    }
+}

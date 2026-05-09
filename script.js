@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initForm();
     initTimelineAnimation();
-    loadDynamicPlans();      // ✅ NEW: Dynamic plans
-    updatePlanDropdown();    // ✅ NEW: Dynamic dropdown
+    loadDynamicPlans();      
+    updatePlanDropdown();    
 });
 
 function initNavigation() {
@@ -115,37 +115,30 @@ function loadDynamicPlans() {
 // ========================================
 // ✅ DYNAMIC PLAN DROPDOWN (NEW!)
 // ========================================
+// ✅ DYNAMIC PLAN DROPDOWN (Already in your main script.js)
 function updatePlanDropdown() {
     const planSelect = document.getElementById('plan');
-    if (!planSelect) return;
-    
     const plans = JSON.parse(localStorage.getItem('idnsPlans') || '[]');
     
-    let options = `
-        <option value="" disabled selected>Select Service/Plan</option>
-    `;
+    let options = `<option value="" disabled selected>Select Service/Plan</option>`;
     
-    // ✅ Dynamic plans first
+    // ✅ PLANS FROM ADMIN (Dynamic)
     plans.forEach(plan => {
         const popular = plan.popular ? ' ⭐' : '';
         options += `<option value="${plan.speed}">${plan.speed} - ₱${plan.price.toLocaleString()}${popular}</option>`;
     });
     
-    // Static services
-    options += `
-        <optgroup label="Other Services">
-            <option value="cctv">CCTV Installation</option>
-            <option value="firewall">Firewall VPN</option>
-            <option value="network">Network Rehabilitation</option>
-            <option value="cabling">Structured Cabling</option>
-            <option value="ftth">FTTH Installation & Design</option>
-            <option value="fiber">Fiber Lying</option>
-            <option value="p2p">P2P Installation</option>
-        </optgroup>
-    `;
+    // ✅ SERVICES FROM ADMIN (Dynamic)
+    const services = JSON.parse(localStorage.getItem('idnsServices') || '[]');
+    if (services.length > 0) {
+        options += `<optgroup label="Other Services">`;
+        services.forEach(service => {
+            options += `<option value="${service.value}">${service.name}</option>`;
+        });
+        options += `</optgroup>`;
+    }
     
     planSelect.innerHTML = options;
-    console.log(`✅ Updated dropdown with ${plans.length} plans`);
 }
 
 // ========================================
@@ -222,7 +215,8 @@ function initForm() {
     emailjs.init("du3WGCOq2EcfxjyKh");
     const form = document.getElementById('applyForm');
     const submitBtn = document.getElementById('submitBtn');
-    const SHEETDB_API = 'https://sheetdb.io/api/v1/641wo3uhxnqoq';
+    
+    const SECURE_API = 'https://idns-form-proxy.idnsinformationservice.workers.dev';
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -236,32 +230,31 @@ function initForm() {
             Email: document.getElementById('email').value.trim(),
             Services: document.getElementById('plan').value,
             Address: document.getElementById('address').value.trim(),
+            UserAgent: navigator.userAgent,
             Date: new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' }),
             Price_Description: getPlanPrice(document.getElementById('plan').value)
         };
 
         try {
-            await fetch(SHEETDB_API, {
+            const dbResponse = await fetch(SECURE_API, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
+
+            if (!dbResponse.ok) {
+                throw new Error('Database save failed');
+            }
             
             await emailjs.send('service_9obuszs', 'template_bfu67as', formData);
 
+            // ✅ RELOAD PAGE + SCROLL TO HERO
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Success!';
+            
             setTimeout(() => {
-                const homeSection = document.getElementById('home');
-                const navbarHeight = 90;
-                const homeTop = homeSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                
-                window.scrollTo({ top: homeTop, behavior: 'smooth' });
-                
-                setTimeout(() => {
-                    alert('✅ Success! Application sent. We will contact you soon!');
-                    form.reset();
-                    window.location.href = window.location.pathname + '#home';
-                }, 1000);
-            }, 500);
+                // Full page reload
+                window.location.href = window.location.pathname + '#home';
+            }, 1500);
 
         } catch (error) {
             console.error('❌ Error:', error);
@@ -272,7 +265,7 @@ function initForm() {
     });
 }
 
-// ✅ UPDATED: Dynamic price lookup
+// ✅ All other functions UNCHANGED (getPlanPrice, cookies, etc.)
 function getPlanPrice(planValue) {
     const plans = JSON.parse(localStorage.getItem('idnsPlans') || '[]');
     const plan = plans.find(p => p.speed === planValue);
@@ -291,7 +284,7 @@ function getPlanPrice(planValue) {
     return services[planValue] || 'Custom Service';
 }
 
-// Cookie functions
+// Cookie functions (unchanged)
 function acceptCookies() {
     document.cookie = "cookies_accepted=true; path=/; max-age=31536000";
     document.getElementById('cookieBanner').classList.remove('show');
