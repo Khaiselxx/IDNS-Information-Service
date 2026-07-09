@@ -58,7 +58,7 @@ function loadDynamicServices() {
         return;
     }
     
-    // Render services
+   // Render services without the Apply Now button
     servicesGrid.innerHTML = services.map((service, index) => `
         <div class="service-card">
             <div class="service-icon">
@@ -68,9 +68,6 @@ function loadDynamicServices() {
             <div class="service-description">
                 Professional ${service.name.toLowerCase()} service.
             </div>
-            <a href="index.html#applyForm" class="service-cta">
-                Apply Now
-            </a>
         </div>
     `).join('');
     
